@@ -16,10 +16,6 @@ You can download the intercom client nuget.
 
 ## Development
 ### TODO
-* Implement timezone constant (if not too big of a hassle to maintain)
-* Implement cron expression-language (if found as needed?)
-* Implement cronitor `assertions`-language
-* Write tests for each client
 
 ## Contributing
 Pull requests and features are happily considered! By participating in this project you agree to abide by the [Code of Conduct](http://contributor-covenant.org/version/2/0).
