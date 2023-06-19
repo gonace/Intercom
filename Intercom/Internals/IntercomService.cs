@@ -15,6 +15,7 @@ namespace Intercom.Internals
         public NewsClient News;
         public NotesClient Notes;
         public SegmentsClient Segments;
+        public SubscriptionsClient Subscriptions;
         public SwitchClient Switch;
         public TagsClient Tags;
         public TeamsClient Teams;
@@ -37,6 +38,7 @@ namespace Intercom.Internals
             News = new NewsClient(baseUri, bearerToken);
             Notes = new NotesClient(baseUri, bearerToken);
             Segments = new SegmentsClient(baseUri, bearerToken);
+            Subscriptions = new SubscriptionsClient(baseUri, bearerToken);
             Switch = new SwitchClient(baseUri, bearerToken);
             Tags = new TagsClient(baseUri, bearerToken);
             Teams = new TeamsClient(baseUri, bearerToken);

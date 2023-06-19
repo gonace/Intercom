@@ -17,7 +17,11 @@ namespace Intercom.Tests.Clients
         [Fact]
         public void ShouldBeAbleToRunRequest()
         {
-            var request = new ListRequest();
+            var request = new ListRequest
+            {
+                Limit = 10,
+                Page = 2
+            };
 
             var response = _contactsClient.List(request);
 

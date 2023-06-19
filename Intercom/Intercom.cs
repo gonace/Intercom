@@ -26,6 +26,7 @@ namespace Intercom
         public static NewsClient News = Service.News;
         public static NotesClient Notes = Service.Notes;
         public static SegmentsClient Segments = Service.Segments;
+        public static SubscriptionsClient Subscriptions = Service.Subscriptions;
         public static SwitchClient Switch = Service.Switch;
         public static TagsClient Tags = Service.Tags;
         public static TeamsClient Teams = Service.Teams;

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Intercom.Models.Responses
+namespace Intercom.Models.Embedded
 {
     public class Pages
     {

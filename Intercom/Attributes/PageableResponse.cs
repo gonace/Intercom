@@ -1,10 +1,10 @@
-﻿using Intercom.Models.Responses;
+﻿using Intercom.Models.Embedded;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Intercom.Responses
+namespace Intercom.Attributes
 {
-    public class PageableResponse<TResponse, TResult>
+    public abstract class PageableResponse<TResponse>
     {
         [JsonProperty("type")]
         public string Type { get; set; }
@@ -15,7 +15,6 @@ namespace Intercom.Responses
         [JsonProperty("limited")]
         public bool Limited { get; set; }
 
-        [JsonProperty(nameof(TResult))]
-        public IEnumerable<TResponse> Result { get; set; } = new List<TResponse>();
+        public abstract IEnumerable<TResponse> Result { get; set; }
     }
 }

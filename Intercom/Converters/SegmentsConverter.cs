@@ -7,14 +7,14 @@ using System.Linq;
 
 namespace Intercom.Converters
 {
-    public class TagsConverter : JsonConverter
+    public class SegmentsConverter : JsonConverter
     {
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             try
             {
                 var obj = JObject.Load(reader);
-                var result = GetList<Tag>(obj, "tags");
+                var result = GetList<Segment>(obj, "segments");
 
                 return result;
             }

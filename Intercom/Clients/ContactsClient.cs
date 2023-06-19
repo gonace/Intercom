@@ -1,19 +1,16 @@
 ﻿using Intercom.Abstractions;
-using Intercom.Internals;
-using Intercom.Models;
 using Intercom.Requests.Contacts;
-using Intercom.Responses;
-using System.Collections.Generic;
+using Intercom.Responses.Contacts;
 using System.Threading.Tasks;
 
 namespace Intercom.Clients
 {
     public interface IContactsClient
     {
-        PageableResponse<IEnumerable<Contact>, Contacts> Find(FindRequest request);
-        Task<PageableResponse<IEnumerable<Contact>, Contacts>> FindAsync(FindRequest request);
-        PageableResponse<IEnumerable<Contact>, Contacts> List(ListRequest request);
-        Task<PageableResponse<IEnumerable<Contact>, Contacts>> ListAsync(ListRequest request);
+        FindResponse Find(FindRequest request);
+        Task<FindResponse> FindAsync(FindRequest request);
+        FindResponse List(ListRequest request);
+        Task<FindResponse> ListAsync(ListRequest request);
     }
 
     public class ContactsClient : BaseClient<ContactsClient>, IContactsClient
@@ -23,24 +20,24 @@ namespace Intercom.Clients
         {
         }
 
-        public PageableResponse<IEnumerable<Contact>, Contacts> Find(FindRequest request)
+        public FindResponse Find(FindRequest request)
         {
-            return Post<PageableResponse<IEnumerable<Contact>, Contacts>, FindRequest>(request);
+            return Post<FindResponse, FindRequest>(request);
         }
 
-        public async Task<PageableResponse<IEnumerable<Contact>, Contacts>> FindAsync(FindRequest request)
+        public async Task<FindResponse> FindAsync(FindRequest request)
         {
-            return await PostAsync<PageableResponse<IEnumerable<Contact>, Contacts>, FindRequest>(request);
+            return await PostAsync<FindResponse, FindRequest>(request);
         }
 
-        public PageableResponse<IEnumerable<Contact>, Contacts> List(ListRequest request)
+        public FindResponse List(ListRequest request)
         {
-            return Get<PageableResponse<IEnumerable<Contact>, Contacts>>(request);
+            return Get<FindResponse>(request);
         }
 
-        public async Task<PageableResponse<IEnumerable<Contact>, Contacts>> ListAsync(ListRequest request)
+        public async Task<FindResponse> ListAsync(ListRequest request)
         {
-            return await GetAsync<PageableResponse<IEnumerable<Contact>, Contacts>>(request);
+            return await GetAsync<FindResponse>(request);
         }
     }
 }

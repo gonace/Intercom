@@ -1,6 +1,8 @@
-﻿namespace Intercom.Internals
+﻿using Intercom.Models;
+
+namespace Intercom.Internals
 {
-    public class Contacts
+    public class Contacts : User
     {
     }
 }

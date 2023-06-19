@@ -5,6 +5,13 @@ using System.Collections.Generic;
 
 namespace Intercom.Models
 {
+    /// <summary>
+    /// Companies allow you to represent organizations using your product.
+    /// Each company will have its own description and be associated with contacts.
+    /// You can fetch, create, update and list companies.
+    ///
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/the-company-model">Documentation</see>
+    /// </summary>
     public class Company : Model
     {
         [JsonProperty("name")]
