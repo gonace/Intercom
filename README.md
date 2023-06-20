@@ -1,12 +1,12 @@
 ﻿# Intercom API client library for .NET
-![Nuget](https://img.shields.io/nuget/v/Intercom)
-![Nuget](https://img.shields.io/nuget/dt/Intercom)
+![Nuget](https://img.shields.io/nuget/v/intercom-net)
+![Nuget](https://img.shields.io/nuget/dt/intercom-net)
 
 ## Supported APIs
 
 ## Install
 You can download the intercom client nuget.
-[https://www.nuget.org/packages/Intercom](https://www.nuget.org/packages/Intercom)
+[https://www.nuget.org/packages/Intercom](https://www.nuget.org/packages/intercom-net)
 
 ## Usage
 > For the full documentation please read our [wiki](https://github.com/gonace/intercom/wiki)!
