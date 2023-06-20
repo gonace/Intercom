@@ -43,14 +43,55 @@ namespace Intercom.Models
         [JsonProperty("language_override")]
         public string LanguageOverride { get; set; }
 
-        [JsonProperty("marked_email_as_spam")]
-        public bool? MarkedEmailAsSpam { get; set; }
         [JsonProperty("has_hard_bounced")]
         public bool? HasHardBounced { get; set; }
+        [JsonProperty("marked_email_as_spam")]
+        public bool? MarkedEmailAsSpam { get; set; }
         [JsonProperty("unsubscribed_from_emails")]
         public bool? UnsubscribedFromEmails { get; set; }
         [JsonProperty("custom_attributes")]
         public Dictionary<string, object> Attributes { get; set; }
+        [JsonProperty("os")]
+        public string Os { get; set; }
+
+        #region Browser
+        [JsonProperty("browser")]
+        public string Browser { get; set; }
+        [JsonProperty("browser_version")]
+        public string BrowserVersion { get; set; }
+        [JsonProperty("browser_language")]
+        public string BrowserLanguage { get; set; }
+        #endregion
+
+        #region Android
+        [JsonProperty("android_app_name")]
+        public string AndroidAppName { get; set; }
+        [JsonProperty("android_app_version")]
+        public string AndroidAppVersion { get; set; }
+        [JsonProperty("android_device")]
+        public string AndroidDevice { get; set; }
+        [JsonProperty("android_os_version")]
+        public string AndroidOsVersion { get; set; }
+        [JsonProperty("android_sdk_version")]
+        public string AndroidSdkVersion { get; set; }
+        [JsonProperty("android_last_seen_at")]
+        public string AndroidLastSeenAt { get; set; }
+        #endregion
+
+        #region iOS
+        [JsonProperty("ios_app_name")]
+        public string IosAppName { get; set; }
+        [JsonProperty("ios_app_version")]
+        public string IosAppVersion { get; set; }
+        [JsonProperty("ios_device")]
+        public string IosDevice { get; set; }
+        [JsonProperty("ios_os_version")]
+        public string IosOsVersion { get; set; }
+        [JsonProperty("ios_sdk_version")]
+        public string IosSdkVersion { get; set; }
+        [JsonProperty("ios_last_seen_at")]
+        public string IosLastSeenAt { get; set; }
+        #endregion
 
         [JsonProperty("avatar")]
         public Avatar Avatar { get; set; }
@@ -60,13 +101,15 @@ namespace Intercom.Models
         [JsonConverter(typeof(CompaniesConverter))]
         [JsonProperty("companies")]
         public IEnumerable<Company> Companies { get; set; }
+        [JsonConverter(typeof(NotesConverter))]
+        [JsonProperty("notes")]
+        public IEnumerable<Note> Notes { get; set; }
         [JsonConverter(typeof(SegmentsConverter))]
         [JsonProperty("segments")]
         public IEnumerable<Segment> Segments { get; set; }
         [JsonConverter(typeof(TagsConverter))]
         [JsonProperty("tags")]
         public IEnumerable<Tag> Tags { get; set; }
-
 
         [JsonProperty("last_contacted_at")]
         public long? LastContactedAt { get; set; }

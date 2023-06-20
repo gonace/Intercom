@@ -4,9 +4,9 @@ namespace Intercom.Abstractions
 {
     public abstract class Model
     {
-        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("id")]
         public virtual string Id { get; set; }
-        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("type")]
         public virtual string Type { get; set; }
     }
 }

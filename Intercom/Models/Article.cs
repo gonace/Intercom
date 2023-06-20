@@ -17,8 +17,6 @@ namespace Intercom.Models
         [JsonProperty("workspace_id")]
         public string WorkspaceId { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
         [JsonProperty("title")]
         public string Title { get; set; }
         [JsonProperty("description")]

@@ -16,8 +16,8 @@ namespace Intercom.Models
         [JsonProperty("workspace_id")]
         public string WorkspaceId { get; set; }
 
-        [JsonProperty("title")]
-        public string Title { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
         [JsonProperty("description")]
         public string Description { get; set; }
         [JsonProperty("url")]
@@ -28,6 +28,9 @@ namespace Intercom.Models
         public int Order { get; set; }
         [JsonProperty("default_locale")]
         public string DefaultLocale { get; set; }
+        //TODO: Implement this
+        //[JsonProperty("translated_content")]
+        //public TranslatedContent TranslatedContent { get; set; }
 
         [JsonProperty("created_at")]
         public long? CreatedAt { get; set; }
