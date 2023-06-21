@@ -10,18 +10,15 @@ namespace Intercom.Requests.Events
         public string Type { get; }
 
         [QueryStringProperty("email")]
-        private string Email { get; }
+        private string Email { get; set; }
         [QueryStringProperty("intercom_user_id")]
-        public string IntercomUserId { get; }
+        public string IntercomUserId { get; set; }
         [QueryStringProperty("user_id")]
-        public string UserId { get; }
+        public string UserId { get; set; }
 
-        public ListRequest(string type, string email, string userId, string intercomUserId)
+        public ListRequest(string type)
         {
             Type = type;
-            Email = email;
-            UserId = userId;
-            IntercomUserId = intercomUserId;
         }
 
         public override string Uri => $"events{this.ToQueryString()}";
