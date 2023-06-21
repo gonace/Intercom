@@ -12,6 +12,10 @@ namespace Intercom.Clients
         Task<ListResponse> ListAsync(ListRequest request);
         Contact Get(GetRequest request);
         Task<Contact> GetAsync(GetRequest request);
+        Contact Create(CreateRequest request);
+        Task<Contact> CreateAsync(CreateRequest request);
+        Contact Update(UpdateRequest request);
+        Task<Contact> UpdateAsync(UpdateRequest request);
     }
 
     public class ContactsClient : BaseClient<ContactsClient>, IContactsClient
@@ -44,6 +48,26 @@ namespace Intercom.Clients
         public async Task<Contact> GetAsync(GetRequest request)
         {
             return await GetAsync<Contact>(request);
+        }
+
+        public Contact Create(CreateRequest request)
+        {
+            return Post<Contact, CreateRequest>(request);
+        }
+
+        public async Task<Contact> CreateAsync(CreateRequest request)
+        {
+            return await PostAsync<Contact, CreateRequest>(request);
+        }
+
+        public Contact Update(UpdateRequest request)
+        {
+            return Put<Contact, UpdateRequest>(request);
+        }
+
+        public async Task<Contact> UpdateAsync(UpdateRequest request)
+        {
+            return await PutAsync<Contact, UpdateRequest>(request);
         }
     }
 }

@@ -12,6 +12,10 @@ namespace Intercom.Clients
         Task<ListResponse> ListAsync(ListRequest request);
         Article Get(GetRequest request);
         Task<Article> GetAsync(GetRequest request);
+        Article Create(CreateRequest request);
+        Task<Article> CreateAsync(UpdateRequest request);
+        Article Update(UpdateRequest request);
+        Task<Article> UpdateAsync(UpdateRequest request);
     }
 
     public class ArticlesClient : BaseClient<ArticlesClient>, IArticlesClient
@@ -44,6 +48,26 @@ namespace Intercom.Clients
         public async Task<Article> GetAsync(GetRequest request)
         {
             return await GetAsync<Article>(request);
+        }
+
+        public Article Create(CreateRequest request)
+        {
+            return Post<Article, CreateRequest>(request);
+        }
+
+        public async Task<Article> CreateAsync(UpdateRequest request)
+        {
+            return await PostAsync<Article, UpdateRequest>(request);
+        }
+
+        public Article Update(UpdateRequest request)
+        {
+            return Put<Article, UpdateRequest>(request);
+        }
+
+        public async Task<Article> UpdateAsync(UpdateRequest request)
+        {
+            return await PutAsync<Article, UpdateRequest>(request);
         }
     }
 }

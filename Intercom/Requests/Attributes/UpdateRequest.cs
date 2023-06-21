@@ -5,35 +5,20 @@ namespace Intercom.Requests.Attributes
 {
     public class UpdateRequest : PayloadRequest
     {
-        public string Id { get; set; }
-
-        public bool Archived { get; set; }
-        public string Description { get; set; }
-        public string[] Options { get; set; }
-
-        public UpdateRequest(string id, bool archived, string description, string[] options)
-        {
-            Id = id;
-
-            Archived = archived;
-            Description = description;
-            Options = options;
-        }
+        public Attribute Attribute { get; set; }
 
         public UpdateRequest(Attribute attribute)
         {
-            Id = attribute.Id;
-            Archived = attribute.Archived;
-            Description = attribute.Description;
-            Options = attribute.Options;
+            Attribute = attribute;
         }
 
         public override object Payload => new
         {
-            description = Description,
-            options = Options
+            archived = Attribute.Archived,
+            description = Attribute.Description,
+            options = Attribute.Options
         };
 
-        public override string Uri => $"data_attributes/{Id}]";
+        public override string Uri => $"data_attributes/{Attribute.Id}]";
     }
 }

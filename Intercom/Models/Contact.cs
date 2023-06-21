@@ -21,6 +21,8 @@ namespace Intercom.Models
         /// </summary>
         [JsonProperty("app_id")]
         public string AppId { get; set; }
+        [JsonProperty("external_id")]
+        public string ExternalId { get; set; }
         /// <summary>
         /// The id of an admin that has been assigned account ownership of the contact.
         /// </summary>
@@ -235,7 +237,7 @@ namespace Intercom.Models
         /// (UNIX timestamp) The time specified for when a contact signed up.
         /// </summary>
         [JsonProperty("signed_up_at")]
-        public long? RegisteredAt { get; set; }
+        public long? SignedUpdAt { get; set; }
         /// <summary>
         /// (UNIX timestamp) The time when the contact was created.
         /// </summary>
