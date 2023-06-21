@@ -16,12 +16,12 @@ namespace Intercom.Abstractions
         private readonly string _bearerToken;
         private readonly string _apiVersion;
 
-        protected BaseClient(string baseUri, string bearerToken, string apiVersion)
+        protected BaseClient(string baseUri, string bearerToken, Version apiVersion)
         {
             _baseUri = new Uri(baseUri);
 
             _bearerToken = bearerToken;
-            _apiVersion = apiVersion;
+            _apiVersion = apiVersion.ToString(2);
         }
 
         public virtual TReturn Get<TReturn>(PlainRequest req) =>

@@ -1,5 +1,6 @@
 ﻿using Intercom.Abstractions;
 using Intercom.Constants;
+using System;
 
 namespace Intercom.Clients
 {
@@ -10,13 +11,13 @@ namespace Intercom.Clients
 
     public class SubscriptionsClient : BaseClient<SubscriptionsClient>, ISubscriptionClient
     {
-        public SubscriptionsClient(string baseUri, string bearerToken, string apiVersion)
+        public SubscriptionsClient(string baseUri, string bearerToken, Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
         }
 
         public SubscriptionsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Version.Latest)
+            : base(baseUri, bearerToken, ApiVersion.Latest)
         {
         }
     }

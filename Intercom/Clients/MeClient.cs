@@ -2,6 +2,7 @@
 using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Me;
+using System;
 using System.Threading.Tasks;
 
 namespace Intercom.Clients
@@ -14,13 +15,13 @@ namespace Intercom.Clients
 
     public class MeClient : BaseClient<MeClient>, IMeClient
     {
-        public MeClient(string baseUri, string bearerToken, string apiVersion)
+        public MeClient(string baseUri, string bearerToken, Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
         }
 
         public MeClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Version.Latest)
+            : base(baseUri, bearerToken, ApiVersion.Latest)
         {
         }
 

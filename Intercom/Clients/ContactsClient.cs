@@ -2,6 +2,7 @@
 using Intercom.Constants;
 using Intercom.Requests.Contacts;
 using Intercom.Responses.Contacts;
+using System;
 using System.Threading.Tasks;
 
 namespace Intercom.Clients
@@ -16,13 +17,13 @@ namespace Intercom.Clients
 
     public class ContactsClient : BaseClient<ContactsClient>, IContactsClient
     {
-        public ContactsClient(string baseUri, string bearerToken, string apiVersion)
+        public ContactsClient(string baseUri, string bearerToken, Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
         }
 
         public ContactsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Version.Latest)
+            : base(baseUri, bearerToken, ApiVersion.Latest)
         {
         }
 
