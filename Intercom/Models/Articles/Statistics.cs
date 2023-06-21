@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace Intercom.Models.Embedded
+namespace Intercom.Models.Articles
 {
-    public class ArticleStatistics
+    public class Statistics
     {
         [JsonProperty("type")]
         public string Type { get; set; }

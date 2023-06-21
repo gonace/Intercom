@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 
 namespace Intercom.Clients
 {
@@ -8,8 +9,13 @@ namespace Intercom.Clients
 
     public class TicketsClient : BaseClient<TicketsClient>, ITicketsClient
     {
+        public TicketsClient(string baseUri, string bearerToken, string apiVersion)
+            : base(baseUri, bearerToken, apiVersion)
+        {
+        }
+
         public TicketsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken)
+            : base(baseUri, bearerToken, Version.Latest)
         {
         }
     }

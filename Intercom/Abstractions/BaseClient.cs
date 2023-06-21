@@ -1,5 +1,6 @@
 ﻿using Intercom.Attributes;
 using Intercom.Exceptions;
+using Intercom.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -13,11 +14,14 @@ namespace Intercom.Abstractions
     {
         private readonly Uri _baseUri;
         private readonly string _bearerToken;
+        private readonly string _apiVersion;
 
-        protected BaseClient(string baseUri, string bearerToken)
+        protected BaseClient(string baseUri, string bearerToken, string apiVersion)
         {
             _baseUri = new Uri(baseUri);
+
             _bearerToken = bearerToken;
+            _apiVersion = apiVersion;
         }
 
         public virtual TReturn Get<TReturn>(PlainRequest req) =>
@@ -159,6 +163,7 @@ namespace Intercom.Abstractions
             apiClient.DefaultRequestHeaders.Accept.Clear();
             apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             apiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken);
+            apiClient.AddVersionHeader(_apiVersion);
 
             return apiClient;
         }

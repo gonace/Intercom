@@ -1,6 +1,7 @@
 ﻿using Intercom.Clients;
 using Intercom.Constants;
 using Intercom.Models;
+using Intercom.Models.Companies;
 using Intercom.Requests.Companies;
 using System.Collections.Generic;
 using Xunit;

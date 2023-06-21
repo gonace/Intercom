@@ -1,4 +1,4 @@
-﻿using Intercom.Models.Embedded;
+﻿using Intercom.Models.Shared;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 

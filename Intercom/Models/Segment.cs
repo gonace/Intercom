@@ -12,14 +12,30 @@ namespace Intercom.Models
     /// </summary>
     public class Segment : Model
     {
+        /// <summary>
+        /// The name of the segment.
+        /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; }
+        /// <summary>
+        /// Type of the contact: contact (lead) or user.
+        /// </summary>
         [JsonProperty("person_type")]
         public string PersonType { get; set; }
+        /// <summary>
+        /// The number of items in the user segment. It's returned when include_count=true is included in the request.
+        /// </summary>
         [JsonProperty("count")]
         public int Count { get; set; }
+
+        /// <summary>
+        /// The time the segment was created.
+        /// </summary>
         [JsonProperty("created_at")]
         public long? CreatedAt { get; set; }
+        /// <summary>
+        /// The time the segment was updated.
+        /// </summary>
         [JsonProperty("updated_at")]
         public long? UpdatedAt { get; set; }
     }
