@@ -1,5 +1,6 @@
 ﻿using Intercom.Clients;
 using Intercom.Internals;
+using System;
 
 namespace Intercom
 {
@@ -14,6 +15,11 @@ namespace Intercom
         public static void Configure(string baseUri, string bearerToken)
         {
             Service.Configure(baseUri, bearerToken);
+        }
+
+        public static void Configure(string baseUri, string bearerToken, Version apiVersion)
+        {
+            Service.Configure(baseUri, bearerToken, apiVersion);
         }
 
         public static AdminsClient Admins = Service.Admins;

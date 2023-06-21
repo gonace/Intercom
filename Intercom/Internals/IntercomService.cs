@@ -23,9 +23,36 @@ namespace Intercom.Internals
         public VisitorsClient Visitors;
 
         /// <summary>
-        /// Configures the instance.
-        /// Must be called before any other methods.
+        /// Configures the instance and must be called before any other methods.
         /// </summary>
+        /// <param name="baseUri"></param>
+        /// <param name="bearerToken"></param>
+        /// <param name="version"></param>
+        public void Configure(string baseUri, string bearerToken, Version version)
+        {
+            Admins = new AdminsClient(baseUri, bearerToken, version);
+            Articles = new ArticlesClient(baseUri, bearerToken, version);
+            Companies = new CompaniesClient(baseUri, bearerToken, version);
+            Contacts = new ContactsClient(baseUri, bearerToken, version);
+            Conversations = new ConversationsClient(baseUri, bearerToken, version);
+            Me = new MeClient(baseUri, bearerToken, version);
+            Messages = new MessagesClient(baseUri, bearerToken, version);
+            News = new NewsClient(baseUri, bearerToken, version);
+            Notes = new NotesClient(baseUri, bearerToken, version);
+            Segments = new SegmentsClient(baseUri, bearerToken, version);
+            Subscriptions = new SubscriptionsClient(baseUri, bearerToken, version);
+            Switch = new SwitchClient(baseUri, bearerToken, version);
+            Tags = new TagsClient(baseUri, bearerToken, version);
+            Teams = new TeamsClient(baseUri, bearerToken, version);
+            Tickets = new TicketsClient(baseUri, bearerToken, version);
+            Visitors = new VisitorsClient(baseUri, bearerToken, version);
+        }
+
+        /// <summary>
+        /// Configures the instance and must be called before any other methods.
+        /// </summary>
+        /// <param name="baseUri"></param>
+        /// <param name="bearerToken"></param>
         public void Configure(string baseUri, string bearerToken)
         {
             Admins = new AdminsClient(baseUri, bearerToken);
