@@ -1,4 +1,4 @@
-﻿using Intercom.Attributes;
+﻿using Intercom.Abstractions;
 using Intercom.Models;
 
 namespace Intercom.Requests.Companies

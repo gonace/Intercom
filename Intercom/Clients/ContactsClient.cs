@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Models;
 using Intercom.Requests.Contacts;
 using Intercom.Responses.Contacts;
 using System.Threading.Tasks;
@@ -7,10 +8,10 @@ namespace Intercom.Clients
 {
     public interface IContactsClient
     {
-        FindResponse Find(FindRequest request);
-        Task<FindResponse> FindAsync(FindRequest request);
-        FindResponse List(ListRequest request);
-        Task<FindResponse> ListAsync(ListRequest request);
+        ListResponse List(ListRequest request);
+        Task<ListResponse> ListAsync(ListRequest request);
+        Contact Get(GetRequest request);
+        Task<Contact> GetAsync(GetRequest request);
     }
 
     public class ContactsClient : BaseClient<ContactsClient>, IContactsClient
@@ -25,24 +26,24 @@ namespace Intercom.Clients
         {
         }
 
-        public FindResponse Find(FindRequest request)
+        public ListResponse List(ListRequest request)
         {
-            return Post<FindResponse, FindRequest>(request);
+            return Get<ListResponse>(request);
         }
 
-        public async Task<FindResponse> FindAsync(FindRequest request)
+        public async Task<ListResponse> ListAsync(ListRequest request)
         {
-            return await PostAsync<FindResponse, FindRequest>(request);
+            return await GetAsync<ListResponse>(request);
         }
 
-        public FindResponse List(ListRequest request)
+        public Contact Get(GetRequest request)
         {
-            return Get<FindResponse>(request);
+            return Get<Contact>(request);
         }
 
-        public async Task<FindResponse> ListAsync(ListRequest request)
+        public async Task<Contact> GetAsync(GetRequest request)
         {
-            return await GetAsync<FindResponse>(request);
+            return await GetAsync<Contact>(request);
         }
     }
 }

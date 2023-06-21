@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Intercom.Attributes
+namespace Intercom.Abstractions
 {
     public abstract class PageableResponse<TResponse>
     {
@@ -15,6 +15,6 @@ namespace Intercom.Attributes
         [JsonProperty("limited")]
         public bool Limited { get; set; }
 
-        public abstract IEnumerable<TResponse> Result { get; set; }
+        public abstract IEnumerable<TResponse> Data { get; set; }
     }
 }

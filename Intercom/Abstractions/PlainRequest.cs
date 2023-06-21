@@ -1,6 +1,7 @@
-﻿using Intercom.Constants;
+﻿using Intercom.Attributes;
+using Intercom.Constants;
 
-namespace Intercom.Attributes
+namespace Intercom.Abstractions
 {
     public abstract class PlainRequest
     {

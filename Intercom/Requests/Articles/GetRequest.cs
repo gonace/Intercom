@@ -1,6 +1,6 @@
 ﻿using Intercom.Abstractions;
 
-namespace Intercom.Requests.Admins
+namespace Intercom.Requests.Articles
 {
     public class GetRequest : PlainRequest
     {
@@ -11,6 +11,6 @@ namespace Intercom.Requests.Admins
             Id = id;
         }
 
-        public override string Uri => $"admins/{Id}";
+        public override string Uri => $"articles/{Id}";
     }
 }

@@ -3,11 +3,11 @@ using Intercom.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Intercom.Responses.Contacts
+namespace Intercom.Responses.Articles
 {
-    public class ListResponse : PageableResponse<Contact>
+    public class ListResponse : PageableResponse<Article>
     {
         [JsonProperty("data")]
-        public override IEnumerable<Contact> Data { get; set; }
+        public override IEnumerable<Article> Data { get; set; }
     }
 }

@@ -1,15 +1,15 @@
 ﻿using Intercom.Abstractions;
 using Intercom.Models;
 using Intercom.Requests.Admins;
-using System.Collections.Generic;
+using Intercom.Responses.Admins;
 using System.Threading.Tasks;
 
 namespace Intercom.Clients
 {
     public interface IAdminsClient
     {
-        IEnumerable<Admin> List(ListRequest request);
-        Task<IEnumerable<Admin>> ListAsync(ListRequest request);
+        ListResponse List(ListRequest request);
+        Task<ListResponse> ListAsync(ListRequest request);
         Admin Get(GetRequest request);
         Task<Admin> GetAsync(GetRequest request);
     }
@@ -26,14 +26,14 @@ namespace Intercom.Clients
         {
         }
 
-        public IEnumerable<Admin> List(ListRequest request)
+        public ListResponse List(ListRequest request)
         {
-            return Get<IEnumerable<Admin>>(request);
+            return Get<ListResponse>(request);
         }
 
-        public async Task<IEnumerable<Admin>> ListAsync(ListRequest request)
+        public async Task<ListResponse> ListAsync(ListRequest request)
         {
-            return await GetAsync<IEnumerable<Admin>>(request);
+            return await GetAsync<ListResponse>(request);
         }
 
         public Admin Get(GetRequest request)

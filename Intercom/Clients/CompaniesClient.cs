@@ -1,6 +1,7 @@
 ﻿using Intercom.Abstractions;
 using Intercom.Models;
 using Intercom.Requests.Companies;
+using Intercom.Responses.Companies;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,10 +9,8 @@ namespace Intercom.Clients
 {
     public interface ICompaniesClient
     {
-        IEnumerable<Company> Find(FindRequest request);
-        Task<IEnumerable<Company>> FindAsync(FindRequest request);
-        IEnumerable<Company> List(ListRequest request);
-        Task<IEnumerable<Company>> ListAsync(ListRequest request);
+        IEnumerable<ListResponse> List(ListRequest request);
+        Task<IEnumerable<ListResponse>> ListAsync(ListRequest request);
         Company Get(GetRequest request);
         Task<Company> GetAsync(GetRequest request);
         Company Upsert(UpsertRequest request);
@@ -34,24 +33,14 @@ namespace Intercom.Clients
         {
         }
 
-        public IEnumerable<Company> Find(FindRequest request)
+        public IEnumerable<ListResponse> List(ListRequest request)
         {
-            return Get<IEnumerable<Company>>(request);
+            return Get<IEnumerable<ListResponse>>(request);
         }
 
-        public async Task<IEnumerable<Company>> FindAsync(FindRequest request)
+        public async Task<IEnumerable<ListResponse>> ListAsync(ListRequest request)
         {
-            return await GetAsync<IEnumerable<Company>>(request);
-        }
-
-        public IEnumerable<Company> List(ListRequest request)
-        {
-            return Get<IEnumerable<Company>>(request);
-        }
-
-        public async Task<IEnumerable<Company>> ListAsync(ListRequest request)
-        {
-            return await GetAsync<IEnumerable<Company>>(request);
+            return await GetAsync<IEnumerable<ListResponse>>(request);
         }
 
         public Company Get(GetRequest request)

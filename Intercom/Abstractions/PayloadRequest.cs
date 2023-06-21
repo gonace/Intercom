@@ -1,4 +1,4 @@
-﻿namespace Intercom.Attributes
+﻿namespace Intercom.Abstractions
 {
     public abstract class PayloadRequest
     {

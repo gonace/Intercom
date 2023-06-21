@@ -1,4 +1,4 @@
-﻿using Intercom.Attributes;
+﻿using Intercom.Abstractions;
 
 namespace Intercom.Requests.Admins
 {

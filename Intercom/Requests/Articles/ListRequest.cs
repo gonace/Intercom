@@ -1,9 +1,9 @@
 ﻿using Intercom.Abstractions;
 
-namespace Intercom.Requests.Companies
+namespace Intercom.Requests.Articles
 {
     public class ListRequest : PlainRequest
     {
-        public override string Uri => "companies";
+        public override string Uri => "articles";
     }
 }

@@ -1,4 +1,4 @@
-﻿using Intercom.Attributes;
+﻿using Intercom.Abstractions;
 using Intercom.Extensions;
 
 namespace Intercom.Requests.Contacts
