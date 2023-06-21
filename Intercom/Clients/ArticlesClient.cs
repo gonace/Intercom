@@ -2,6 +2,7 @@
 using Intercom.Models;
 using Intercom.Requests.Articles;
 using Intercom.Responses.Articles;
+using Intercom.Responses.Generic;
 using System.Threading.Tasks;
 
 namespace Intercom.Clients
@@ -16,6 +17,8 @@ namespace Intercom.Clients
         Task<Article> CreateAsync(UpdateRequest request);
         Article Update(UpdateRequest request);
         Task<Article> UpdateAsync(UpdateRequest request);
+        DeleteResponse Delete(DeleteRequest request);
+        Task<DeleteResponse> DeleteAsync(DeleteRequest request);
     }
 
     public class ArticlesClient : BaseClient<ArticlesClient>, IArticlesClient
@@ -68,6 +71,16 @@ namespace Intercom.Clients
         public async Task<Article> UpdateAsync(UpdateRequest request)
         {
             return await PutAsync<Article, UpdateRequest>(request);
+        }
+
+        public DeleteResponse Delete(DeleteRequest request)
+        {
+            return Delete<DeleteResponse>(request);
+        }
+
+        public async Task<DeleteResponse> DeleteAsync(DeleteRequest request)
+        {
+            return await DeleteAsync<DeleteResponse>(request);
         }
     }
 }
