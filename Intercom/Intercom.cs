@@ -24,9 +24,12 @@ namespace Intercom
 
         public static AdminsClient Admins = Service.Admins;
         public static ArticlesClient Articles = Service.Articles;
+        public static AttributesClient Attributes = Service.Attributes;
         public static CompaniesClient Companies = Service.Companies;
         public static ContactsClient Contacts = Service.Contacts;
         public static ConversationsClient Conversations = Service.Conversations;
+        public static EventsClient Events = Service.Events;
+        public static ExportsClient Exports = Service.Exports;
         public static MeClient Me = Service.Me;
         public static MessagesClient Messages = Service.Messages;
         public static NewsClient News = Service.News;

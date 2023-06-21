@@ -7,9 +7,12 @@ namespace Intercom.Internals
     {
         public AdminsClient Admins;
         public ArticlesClient Articles;
+        public AttributesClient Attributes;
         public CompaniesClient Companies;
         public ContactsClient Contacts;
         public ConversationsClient Conversations;
+        public EventsClient Events;
+        public ExportsClient Exports;
         public MeClient Me;
         public MessagesClient Messages;
         public NewsClient News;
@@ -32,9 +35,12 @@ namespace Intercom.Internals
         {
             Admins = new AdminsClient(baseUri, bearerToken, version);
             Articles = new ArticlesClient(baseUri, bearerToken, version);
+            Attributes = new AttributesClient(baseUri, bearerToken, version);
             Companies = new CompaniesClient(baseUri, bearerToken, version);
             Contacts = new ContactsClient(baseUri, bearerToken, version);
             Conversations = new ConversationsClient(baseUri, bearerToken, version);
+            Events = new EventsClient(baseUri, bearerToken, version);
+            Exports = new ExportsClient(baseUri, bearerToken, version);
             Me = new MeClient(baseUri, bearerToken, version);
             Messages = new MessagesClient(baseUri, bearerToken, version);
             News = new NewsClient(baseUri, bearerToken, version);
@@ -57,9 +63,12 @@ namespace Intercom.Internals
         {
             Admins = new AdminsClient(baseUri, bearerToken);
             Articles = new ArticlesClient(baseUri, bearerToken);
+            Attributes = new AttributesClient(baseUri, bearerToken);
             Companies = new CompaniesClient(baseUri, bearerToken);
             Contacts = new ContactsClient(baseUri, bearerToken);
             Conversations = new ConversationsClient(baseUri, bearerToken);
+            Events = new EventsClient(baseUri, bearerToken);
+            Exports = new ExportsClient(baseUri, bearerToken);
             Me = new MeClient(baseUri, bearerToken);
             Messages = new MessagesClient(baseUri, bearerToken);
             News = new NewsClient(baseUri, bearerToken);
