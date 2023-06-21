@@ -1,6 +1,4 @@
 ﻿using Intercom.Abstractions;
-using Intercom.Constants;
-using System;
 
 namespace Intercom.Clients
 {
@@ -10,13 +8,13 @@ namespace Intercom.Clients
 
     public class NewsClient : BaseClient<NewsClient>, INewsClient
     {
-        public NewsClient(string baseUri, string bearerToken, Version apiVersion)
+        public NewsClient(string baseUri, string bearerToken, System.Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
         }
 
         public NewsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, ApiVersion.Latest)
+            : base(baseUri, bearerToken, Constants.Version.Latest)
         {
         }
     }

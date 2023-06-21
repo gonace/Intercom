@@ -1,6 +1,4 @@
 ﻿using Intercom.Abstractions;
-using Intercom.Constants;
-using System;
 
 namespace Intercom.Clients
 {
@@ -10,13 +8,13 @@ namespace Intercom.Clients
 
     public class TeamsClient : BaseClient<TeamsClient>, ITeamsClient
     {
-        public TeamsClient(string baseUri, string bearerToken, Version apiVersion)
+        public TeamsClient(string baseUri, string bearerToken, System.Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
         }
 
         public TeamsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, ApiVersion.Latest)
+            : base(baseUri, bearerToken, Constants.Version.Latest)
         {
         }
     }

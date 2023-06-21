@@ -1,8 +1,6 @@
 ﻿using Intercom.Abstractions;
-using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Companies;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -26,13 +24,13 @@ namespace Intercom.Clients
 
     public class CompaniesClient : BaseClient<CompaniesClient>, ICompaniesClient
     {
-        public CompaniesClient(string baseUri, string bearerToken, Version apiVersion)
+        public CompaniesClient(string baseUri, string bearerToken, System.Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
         }
 
         public CompaniesClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, ApiVersion.Latest)
+            : base(baseUri, bearerToken, Constants.Version.Latest)
         {
         }
 
