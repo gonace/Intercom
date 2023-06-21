@@ -12,6 +12,8 @@ namespace Intercom.Clients
         Task<ListResponse> ListAsync(ListRequest request);
         Admin Get(GetRequest request);
         Task<Admin> GetAsync(GetRequest request);
+        Admin Patch(SetToAwayRequest request);
+        Task<Admin> PatchAsync(SetToAwayRequest request);
     }
 
     public class AdminsClient : BaseClient<AdminsClient>, IAdminsClient
@@ -44,6 +46,16 @@ namespace Intercom.Clients
         public async Task<Admin> GetAsync(GetRequest request)
         {
             return await GetAsync<Admin>(request);
+        }
+
+        public Admin Patch(SetToAwayRequest request)
+        {
+            return Put<Admin, SetToAwayRequest>(request);
+        }
+
+        public async Task<Admin> PatchAsync(SetToAwayRequest request)
+        {
+            return await PutAsync<Admin, SetToAwayRequest>(request);
         }
     }
 }

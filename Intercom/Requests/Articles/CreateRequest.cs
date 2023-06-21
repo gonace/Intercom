@@ -24,6 +24,6 @@ namespace Intercom.Requests.Articles
             translated_content = Article.TranslatedContent
         };
 
-        public override string Uri => "data_attributes";
+        public override string Uri => "articles";
     }
 }
