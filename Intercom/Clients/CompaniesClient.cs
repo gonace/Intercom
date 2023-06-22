@@ -2,15 +2,16 @@
 using Intercom.Models;
 using Intercom.Requests.Companies;
 using Intercom.Responses.Companies;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Intercom.Clients
 {
     public interface ICompaniesClient
     {
-        IEnumerable<ListResponse> List(ListRequest request);
-        Task<IEnumerable<ListResponse>> ListAsync(ListRequest request);
+        Company Find(FindRequest request);
+        Task<Company> FindAsync(FindRequest request);
+        ListResponse List(ListRequest request);
+        Task<ListResponse> ListAsync(ListRequest request);
         Company Get(GetRequest request);
         Task<Company> GetAsync(GetRequest request);
         Company Upsert(UpsertRequest request);
@@ -19,6 +20,9 @@ namespace Intercom.Clients
         Task<Company> UpdateAsync(UpdateRequest request);
         void Delete(DeleteRequest request);
         Task DeleteAsync(DeleteRequest request);
+
+        Companies.IContactsClient Contacts { get; }
+        Companies.ISegmentsClient Segments { get; }
     }
 
     public class CompaniesClient : BaseClient<CompaniesClient>, ICompaniesClient
@@ -26,21 +30,35 @@ namespace Intercom.Clients
         public CompaniesClient(string baseUri, string bearerToken, System.Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
+            Contacts = new Companies.ContactsClient(baseUri, bearerToken, apiVersion);
+            Segments = new Companies.SegmentsClient(baseUri, bearerToken, apiVersion);
         }
 
         public CompaniesClient(string baseUri, string bearerToken)
             : base(baseUri, bearerToken, Constants.Version.Latest)
         {
+            Contacts = new Companies.ContactsClient(baseUri, bearerToken);
+            Segments = new Companies.SegmentsClient(baseUri, bearerToken);
         }
 
-        public IEnumerable<ListResponse> List(ListRequest request)
+        public Company Find(FindRequest request)
         {
-            return Get<IEnumerable<ListResponse>>(request);
+            return Get<Company>(request);
         }
 
-        public async Task<IEnumerable<ListResponse>> ListAsync(ListRequest request)
+        public async Task<Company> FindAsync(FindRequest request)
         {
-            return await GetAsync<IEnumerable<ListResponse>>(request);
+            return await GetAsync<Company>(request);
+        }
+
+        public ListResponse List(ListRequest request)
+        {
+            return Get<ListResponse>(request);
+        }
+
+        public async Task<ListResponse> ListAsync(ListRequest request)
+        {
+            return await GetAsync<ListResponse>(request);
         }
 
         public Company Get(GetRequest request)
@@ -82,5 +100,8 @@ namespace Intercom.Clients
         {
             await base.DeleteAsync(request);
         }
+
+        public Companies.IContactsClient Contacts { get; }
+        public Companies.ISegmentsClient Segments { get; }
     }
 }

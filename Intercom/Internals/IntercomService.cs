@@ -5,25 +5,25 @@ namespace Intercom.Internals
 {
     internal class IntercomService : IDisposable
     {
-        public AdminsClient Admins;
-        public ArticlesClient Articles;
-        public AttributesClient Attributes;
-        public CompaniesClient Companies;
-        public ContactsClient Contacts;
-        public ConversationsClient Conversations;
-        public EventsClient Events;
-        public ExportsClient Exports;
-        public MeClient Me;
-        public MessagesClient Messages;
-        public NewsClient News;
-        public NotesClient Notes;
-        public SegmentsClient Segments;
-        public SubscriptionsClient Subscriptions;
-        public SwitchClient Switch;
-        public TagsClient Tags;
-        public TeamsClient Teams;
-        public TicketsClient Tickets;
-        public VisitorsClient Visitors;
+        public IAdminsClient Admins;
+        public IArticlesClient Articles;
+        public IAttributesClient Attributes;
+        public ICompaniesClient Companies;
+        public IContactsClient Contacts;
+        public IConversationsClient Conversations;
+        public IEventsClient Events;
+        public IExportsClient Exports;
+        public IMeClient Me;
+        public IMessagesClient Messages;
+        public INewsClient News;
+        public INotesClient Notes;
+        public ISegmentsClient Segments;
+        public ISubscriptionsClient Subscriptions;
+        public ISwitchClient Switch;
+        public ITagsClient Tags;
+        public ITeamsClient Teams;
+        public ITicketsClient Tickets;
+        public IVisitorsClient Visitors;
 
         /// <summary>
         /// Configures the instance and must be called before any other methods.

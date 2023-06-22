@@ -5,12 +5,10 @@ namespace Intercom.Requests.Companies
 {
     public class UpdateRequest : PayloadRequest
     {
-        public string Id { get; }
         public Company Company { get; }
 
         public UpdateRequest(string id, Company company)
         {
-            Id = id;
             Company = company;
         }
 
@@ -27,6 +25,6 @@ namespace Intercom.Requests.Companies
             website = Company.Website
         };
 
-        public override string Uri => $"companies/{Id}";
+        public override string Uri => $"companies/{Company.Id}";
     }
 }

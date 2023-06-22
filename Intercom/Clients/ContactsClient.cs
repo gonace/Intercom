@@ -2,6 +2,7 @@
 using Intercom.Models;
 using Intercom.Requests.Contacts;
 using Intercom.Responses.Contacts;
+using Intercom.Responses.Generic;
 using System.Threading.Tasks;
 
 namespace Intercom.Clients
@@ -16,6 +17,14 @@ namespace Intercom.Clients
         Task<Contact> CreateAsync(CreateRequest request);
         Contact Update(UpdateRequest request);
         Task<Contact> UpdateAsync(UpdateRequest request);
+
+        ArchiveResponse Archive(ArchiveRequest request);
+        Task<ArchiveResponse> ArchiveAsync(ArchiveRequest request);
+
+        Contacts.ICompaniesClient Companies { get; }
+        Contacts.ISegmentsClient Segments { get; }
+        Contacts.ISubscriptionClient Subscriptions { get; }
+        Contacts.ITagsClient Tags { get; }
     }
 
     public class ContactsClient : BaseClient<ContactsClient>, IContactsClient
@@ -23,11 +32,19 @@ namespace Intercom.Clients
         public ContactsClient(string baseUri, string bearerToken, System.Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
+            Companies = new Contacts.CompaniesClient(baseUri, bearerToken, apiVersion);
+            Segments = new Contacts.SegmentsClient(baseUri, bearerToken, apiVersion);
+            Subscriptions = new Contacts.SubscriptionsClient(baseUri, bearerToken, apiVersion);
+            Tags = new Contacts.TagsClient(baseUri, bearerToken, apiVersion);
         }
 
         public ContactsClient(string baseUri, string bearerToken)
             : base(baseUri, bearerToken, Constants.Version.Latest)
         {
+            Companies = new Contacts.CompaniesClient(baseUri, bearerToken);
+            Segments = new Contacts.SegmentsClient(baseUri, bearerToken);
+            Subscriptions = new Contacts.SubscriptionsClient(baseUri, bearerToken);
+            Tags = new Contacts.TagsClient(baseUri, bearerToken);
         }
 
         public ListResponse List(ListRequest request)
@@ -69,5 +86,20 @@ namespace Intercom.Clients
         {
             return await PutAsync<Contact, UpdateRequest>(request);
         }
+
+        public ArchiveResponse Archive(ArchiveRequest request)
+        {
+            return Post<ArchiveResponse>(request);
+        }
+
+        public async Task<ArchiveResponse> ArchiveAsync(ArchiveRequest request)
+        {
+            return await PostAsync<ArchiveResponse>(request);
+        }
+
+        public Contacts.ICompaniesClient Companies { get; }
+        public Contacts.ISegmentsClient Segments { get; }
+        public Contacts.ISubscriptionClient Subscriptions { get; }
+        public Contacts.ITagsClient Tags { get; }
     }
 }

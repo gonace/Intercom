@@ -1,5 +1,4 @@
-﻿using Intercom.Attributes;
-using Intercom.Exceptions;
+﻿using Intercom.Exceptions;
 using Intercom.Extensions;
 using Newtonsoft.Json;
 using System;
@@ -24,10 +23,10 @@ namespace Intercom.Abstractions
             _apiVersion = apiVersion.ToString(2);
         }
 
-        public virtual TReturn Get<TReturn>(PlainRequest req) =>
+        public TReturn Get<TReturn>(PlainRequest req) =>
             Task.Run(() => GetAsync<TReturn>(req)).Result;
 
-        public virtual async Task<TReturn> GetAsync<TReturn>(PlainRequest req)
+        public async Task<TReturn> GetAsync<TReturn>(PlainRequest req)
         {
             using (var apiClient = GetBaseHttpClient())
             {
@@ -36,10 +35,10 @@ namespace Intercom.Abstractions
             }
         }
 
-        public virtual TReturn Get<TReturn, TRequest>(PayloadRequest req) =>
+        public TReturn Get<TReturn, TRequest>(PayloadRequest req) =>
             Task.Run(() => GetAsync<TReturn, TRequest>(req)).Result;
 
-        public virtual async Task<TReturn> GetAsync<TReturn, TRequest>(PayloadRequest req)
+        public async Task<TReturn> GetAsync<TReturn, TRequest>(PayloadRequest req)
         {
             using (var apiClient = GetBaseHttpClient())
             {
@@ -55,6 +54,18 @@ namespace Intercom.Abstractions
         }
 
 
+        public TReturn Post<TReturn>(PlainRequest req) =>
+            Task.Run(() => PostAsync<TReturn>(req)).Result;
+
+        public async Task<TReturn> PostAsync<TReturn>(PlainRequest req)
+        {
+            using (var apiClient = GetBaseHttpClient())
+            {
+                var request = apiClient.PostAsync(req.Uri, null);
+                await PerformRequestAsync<TReturn>(request);
+            }
+        }
+
         public void Post<TRequest>(PayloadRequest req) =>
             Task.Run(() => PostAsync<TRequest>(req));
 
@@ -67,10 +78,10 @@ namespace Intercom.Abstractions
             }
         }
 
-        public virtual TReturn Post<TReturn, TRequest>(PayloadRequest req) =>
+        public TReturn Post<TReturn, TRequest>(PayloadRequest req) =>
             Task.Run(() => PostAsync<TReturn, TRequest>(req)).Result;
 
-        public virtual async Task<TReturn> PostAsync<TReturn, TRequest>(PayloadRequest req)
+        public async Task<TReturn> PostAsync<TReturn, TRequest>(PayloadRequest req)
         {
             using (var apiClient = GetBaseHttpClient())
             {
@@ -92,10 +103,10 @@ namespace Intercom.Abstractions
             }
         }
 
-        public virtual TReturn Put<TReturn, TRequest>(PayloadRequest req) =>
+        public TReturn Put<TReturn, TRequest>(PayloadRequest req) =>
             Task.Run(() => PutAsync<TReturn, TRequest>(req)).Result;
 
-        public virtual async Task<TReturn> PutAsync<TReturn, TRequest>(PayloadRequest req)
+        public async Task<TReturn> PutAsync<TReturn, TRequest>(PayloadRequest req)
         {
             using (var apiClient = GetBaseHttpClient())
             {
@@ -117,10 +128,10 @@ namespace Intercom.Abstractions
             }
         }
 
-        public virtual TReturn Delete<TReturn>(PlainRequest req) =>
+        public TReturn Delete<TReturn>(PlainRequest req) =>
             Task.Run(() => DeleteAsync<TReturn>(req)).Result;
 
-        public virtual async Task<TReturn> DeleteAsync<TReturn>(PlainRequest req)
+        public async Task<TReturn> DeleteAsync<TReturn>(PlainRequest req)
         {
             using (var apiClient = GetBaseHttpClient())
             {
@@ -131,7 +142,7 @@ namespace Intercom.Abstractions
 
 
 
-        protected virtual async Task<TReturn> PerformRequestAsync<TReturn>(Task<HttpResponseMessage> request)
+        protected async Task<TReturn> PerformRequestAsync<TReturn>(Task<HttpResponseMessage> request)
         {
             var response = await request;
 
@@ -142,7 +153,7 @@ namespace Intercom.Abstractions
             throw new ClientException<T>(details?.Title, details?.Status, details);
         }
 
-        protected virtual async Task PerformRequestAsync(Task<HttpResponseMessage> request)
+        protected async Task PerformRequestAsync(Task<HttpResponseMessage> request)
         {
             var response = await request;
 
