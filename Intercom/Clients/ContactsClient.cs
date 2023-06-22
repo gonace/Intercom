@@ -17,6 +17,8 @@ namespace Intercom.Clients
         Task<Contact> CreateAsync(CreateRequest request);
         Contact Update(UpdateRequest request);
         Task<Contact> UpdateAsync(UpdateRequest request);
+        DeleteResponse Delete(DeleteRequest request);
+        Task<DeleteResponse> DeleteAsync(DeleteRequest request);
 
         ArchiveResponse Archive(ArchiveRequest request);
         Task<ArchiveResponse> ArchiveAsync(ArchiveRequest request);
@@ -95,6 +97,16 @@ namespace Intercom.Clients
         public async Task<ArchiveResponse> ArchiveAsync(ArchiveRequest request)
         {
             return await PostAsync<ArchiveResponse>(request);
+        }
+
+        public DeleteResponse Delete(DeleteRequest request)
+        {
+            return Delete<DeleteResponse>(request);
+        }
+
+        public async Task<DeleteResponse> DeleteAsync(DeleteRequest request)
+        {
+            return await DeleteAsync<DeleteResponse>(request);
         }
 
         public Contacts.ICompaniesClient Companies { get; }
