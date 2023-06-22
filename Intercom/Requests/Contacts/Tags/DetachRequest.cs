@@ -9,7 +9,7 @@ namespace Intercom.Requests.Contacts.Tags
     /// <br/><br/>
     /// <see href="https://developers.intercom.com/intercom-api-reference/reference/detachtagfromcontact">Documentation</see>
     /// </summary>
-    public class RemoveRequest : PlainRequest
+    public class DetachRequest : PlainRequest
     {
         /// <summary>
         /// The unique identifier for the contact which is given by Intercom.
@@ -20,13 +20,13 @@ namespace Intercom.Requests.Contacts.Tags
         /// </summary>
         public string TagId { get; }
 
-        public RemoveRequest(Contact contact, Tag tag)
+        public DetachRequest(Contact contact, Tag tag)
         {
             Id = contact.Id;
             TagId = tag.Id;
         }
 
-        public RemoveRequest(string id, string tagId)
+        public DetachRequest(string id, string tagId)
         {
             Id = id;
             TagId = tagId;

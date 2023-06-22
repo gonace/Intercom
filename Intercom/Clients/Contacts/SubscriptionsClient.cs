@@ -11,10 +11,10 @@ namespace Intercom.Clients.Contacts
         ListResponse List(ListRequest request);
         Task<ListResponse> ListAsync(ListRequest request);
 
-        Subscription Add(AddRequest request);
-        Task<Subscription> AddAsync(AddRequest request);
-        Subscription Remove(RemoveRequest request);
-        Task<Subscription> RemoveAsync(RemoveRequest request);
+        Subscription Attach(AttachRequest request);
+        Task<Subscription> AttachAsync(AttachRequest request);
+        Subscription Detach(DetachRequest request);
+        Task<Subscription> DetachAsync(DetachRequest request);
     }
 
     internal class SubscriptionsClient : BaseClient<SubscriptionsClient>, ISubscriptionClient
@@ -39,22 +39,22 @@ namespace Intercom.Clients.Contacts
             return await GetAsync<ListResponse>(request);
         }
 
-        public Subscription Add(AddRequest request)
+        public Subscription Attach(AttachRequest request)
         {
-            return Post<Subscription, AddRequest>(request);
+            return Post<Subscription, AttachRequest>(request);
         }
 
-        public async Task<Subscription> AddAsync(AddRequest request)
+        public async Task<Subscription> AttachAsync(AttachRequest request)
         {
-            return await PostAsync<Subscription, AddRequest>(request);
+            return await PostAsync<Subscription, AttachRequest>(request);
         }
 
-        public Subscription Remove(RemoveRequest request)
+        public Subscription Detach(DetachRequest request)
         {
             return Delete<Subscription>(request);
         }
 
-        public async Task<Subscription> RemoveAsync(RemoveRequest request)
+        public async Task<Subscription> DetachAsync(DetachRequest request)
         {
             return await DeleteAsync<Subscription>(request);
         }

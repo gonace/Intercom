@@ -9,7 +9,7 @@ namespace Intercom.Requests.Contacts.Tags
     /// <br/><br/>
     /// <see href="https://developers.intercom.com/intercom-api-reference/reference/attachtagtocontact">Documentation</see>
     /// </summary>
-    public class AddRequest : PayloadRequest
+    public class AttachRequest : PayloadRequest
     {
         /// <summary>
         /// The unique identifier for the contact which is given by Intercom.
@@ -20,13 +20,13 @@ namespace Intercom.Requests.Contacts.Tags
         /// </summary>
         public string TagId { get; }
 
-        public AddRequest(Contact contact, Tag tag)
+        public AttachRequest(Contact contact, Tag tag)
         {
             Id = contact.Id;
             TagId = tag.Id;
         }
 
-        public AddRequest(string id, string tagId)
+        public AttachRequest(string id, string tagId)
         {
             Id = id;
             TagId = tagId;

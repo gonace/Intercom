@@ -9,7 +9,7 @@ namespace Intercom.Requests.Contacts.Subscriptions
     /// <br/><br/>
     /// <see href="https://developers.intercom.com/intercom-api-reference/reference/attachsubscriptiontypetocontact">Documentation</see>
     /// </summary>
-    public class AddRequest : PayloadRequest
+    public class AttachRequest : PayloadRequest
     {
         /// <summary>
         /// The unique identifier for the contact which is given by Intercom.
@@ -24,14 +24,14 @@ namespace Intercom.Requests.Contacts.Subscriptions
         /// </summary>
         public string ConsentType { get; }
 
-        public AddRequest(Contact contact, Subscription subscription)
+        public AttachRequest(Contact contact, Subscription subscription)
         {
             Id = contact.Id;
             SubscriptionId = subscription.Id;
             ConsentType = subscription.ConsentType;
         }
 
-        public AddRequest(string id, string subscriptionId, string consentType)
+        public AttachRequest(string id, string subscriptionId, string consentType)
         {
             Id = id;
             SubscriptionId = subscriptionId;

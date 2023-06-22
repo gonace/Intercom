@@ -9,7 +9,7 @@ namespace Intercom.Requests.Contacts.Subscriptions
     /// <br/><br/>
     /// <see href="https://developers.intercom.com/intercom-api-reference/reference/detachsubscriptiontypetocontact">Documentation</see>
     /// </summary>
-    public class RemoveRequest : PlainRequest
+    public class DetachRequest : PlainRequest
     {
         /// <summary>
         /// The unique identifier for the contact which is given by Intercom.
@@ -20,13 +20,13 @@ namespace Intercom.Requests.Contacts.Subscriptions
         /// </summary>
         public string SubscriptionId { get; }
 
-        public RemoveRequest(Contact contact, Subscription subscription)
+        public DetachRequest(Contact contact, Subscription subscription)
         {
             Id = contact.Id;
             SubscriptionId = subscription.Id;
         }
 
-        public RemoveRequest(string id, string subscriptionId)
+        public DetachRequest(string id, string subscriptionId)
         {
             Id = id;
             SubscriptionId = subscriptionId;

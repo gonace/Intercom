@@ -9,7 +9,7 @@ namespace Intercom.Requests.Conversations.Tags
     /// <br/><br/>
     /// <see href="https://developers.intercom.com/intercom-api-reference/reference/attachtagtoconversation">Documentation</see>
     /// </summary>
-    public class AddRequest : PayloadRequest
+    public class AttachRequest : PayloadRequest
     {
         /// <summary>
         /// The unique identifier for the contact which is given by Intercom.
@@ -20,13 +20,13 @@ namespace Intercom.Requests.Conversations.Tags
         /// </summary>
         public string TagId { get; }
 
-        public AddRequest(Conversation conversation, Tag tag)
+        public AttachRequest(Conversation conversation, Tag tag)
         {
             Id = conversation.Id;
             TagId = tag.Id;
         }
 
-        public AddRequest(string conversation, string tagId)
+        public AttachRequest(string conversation, string tagId)
         {
             Id = conversation;
             TagId = tagId;
