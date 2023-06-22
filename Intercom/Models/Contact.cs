@@ -27,7 +27,7 @@ namespace Intercom.Models
         /// The id of an admin that has been assigned account ownership of the contact.
         /// </summary>
         [JsonProperty("owner_id")]
-        public string OwnerId { get; set; }
+        public int OwnerId { get; set; }
         /// <summary>
         /// The id of the workspace which the contact belongs to.
         /// </summary>
