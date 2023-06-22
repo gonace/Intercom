@@ -5,6 +5,8 @@ namespace Intercom.Requests.Articles
     /// <summary>
     /// You can fetch the details of a single article by making a GET
     /// request to https://api.intercom.io/articles/<id>.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/retrievearticle">Documentation</see>
     /// </summary>
     public class GetRequest : PlainRequest
     {

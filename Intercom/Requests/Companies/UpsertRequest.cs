@@ -11,6 +11,8 @@ namespace Intercom.Requests.Companies
     /// request, if not found via company_id, the new
     /// company will be created, if found, that company
     /// will be updated.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/createorupdatecompany">Documentation</see>
     /// </summary>
     public class UpsertRequest : PayloadRequest
     {

@@ -5,6 +5,8 @@ namespace Intercom.Requests.Admins
 {
     /// <summary>
     /// You can set an Admin as away for the Inbox.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/setawayadmin">Documentation</see>
     /// </summary>
     public class SetToAwayRequest : PayloadRequest
     {

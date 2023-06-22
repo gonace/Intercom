@@ -7,6 +7,8 @@ namespace Intercom.Requests.Articles
     /// <summary>
     /// You can create a new article by making a POST
     /// request to https://api.intercom.io/articles.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/createarticle">Documentation</see>
     /// </summary>
     public class CreateRequest : PayloadRequest
     {

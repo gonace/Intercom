@@ -8,6 +8,8 @@ namespace Intercom.Requests.Companies
     /// descending, most recently requested first.
     ///
     /// Note that the API does not include companies who have no associated users in list responses.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/listallcompanies">Documentation</see>
     /// </summary>
     public class ListRequest : PlainRequest
     {

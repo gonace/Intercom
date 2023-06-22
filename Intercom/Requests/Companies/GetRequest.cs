@@ -9,6 +9,8 @@ namespace Intercom.Requests.Companies
     {
         /// <summary>
         /// The unique identifier for the company which is given by Intercom.
+        /// <br/><br/>
+        /// <see href="https://developers.intercom.com/intercom-api-reference/reference/retrievecompany">Documentation</see>
         /// </summary>
         public string Id { get; set; }
 

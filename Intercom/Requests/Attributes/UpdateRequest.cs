@@ -5,6 +5,8 @@ namespace Intercom.Requests.Attributes
 {
     /// <summary>
     /// You can update a data attribute.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/updatedataattribute">Documentation</see>
     /// </summary>
     public class UpdateRequest : PayloadRequest
     {

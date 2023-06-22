@@ -3,21 +3,35 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Conversations.Contacts
 {
+    /// <summary>
+    /// You can add participants who are contacts to a conversation, on behalf of either another contact or an admin.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/detachcontactfromconversation">Documentation</see>
+    /// </summary>
     public class DetachRequest : PayloadRequest
     {
-        public string ConversationId { get; }
+        /// <summary>
+        /// The identifier for the conversation as given by Intercom.
+        /// </summary>
+        public string Id { get; }
+        /// <summary>
+        /// The identifier for the contact as given by Intercom.
+        /// </summary>
         public string ContactId { get; }
+        /// <summary>
+        /// The id of the admin who is performing the action.
+        /// </summary>
         public string AdminId { get; set; }
 
         public DetachRequest(Conversation conversation, Contact contact)
         {
-            ConversationId = conversation.Id;
+            Id = conversation.Id;
             ContactId = contact.Id;
         }
 
-        public DetachRequest(string conversationId, string contactId)
+        public DetachRequest(string id, string contactId)
         {
-            ConversationId = conversationId;
+            Id = id;
             ContactId = contactId;
         }
 
@@ -26,6 +40,6 @@ namespace Intercom.Requests.Conversations.Contacts
             admin_id = AdminId
         };
 
-        public override string Uri => $"conversations/{ConversationId}/customers/{ContactId}";
+        public override string Uri => $"conversations/{Id}/customers/{ContactId}";
     }
 }

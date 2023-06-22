@@ -4,6 +4,8 @@ namespace Intercom.Requests.Admins
 {
     /// <summary>
     /// You can retrieve the details of a single admin.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/retrieveadmin">Documentation</see>
     /// </summary>
     public class GetRequest : PlainRequest
     {

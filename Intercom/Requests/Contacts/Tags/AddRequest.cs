@@ -3,28 +3,40 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Contacts.Tags
 {
+    /// <summary>
+    /// You can tag a specific contact.
+    /// This will return a tag object for the tag that was added to the contact.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/attachtagtocontact">Documentation</see>
+    /// </summary>
     public class AddRequest : PayloadRequest
     {
-        public string ContactId { get; }
-        public Tag Tag { get; }
+        /// <summary>
+        /// The unique identifier for the contact which is given by Intercom.
+        /// </summary>
+        public string Id { get; }
+        /// <summary>
+        /// The unique identifier for the contact which is given by Intercom.
+        /// </summary>
+        public string TagId { get; }
 
         public AddRequest(Contact contact, Tag tag)
         {
-            ContactId = contact.Id;
-            Tag = tag;
+            Id = contact.Id;
+            TagId = tag.Id;
         }
 
-        public AddRequest(string contactId, Tag tag)
+        public AddRequest(string id, string tagId)
         {
-            ContactId = contactId;
-            Tag = tag;
+            Id = id;
+            TagId = tagId;
         }
 
         public override object Payload => new
         {
-            id = Tag.Id
+            id = TagId
         };
 
-        public override string Uri => $"contacts/{ContactId}/tags";
+        public override string Uri => $"contacts/{Id}/tags";
     }
 }

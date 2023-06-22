@@ -3,28 +3,45 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Contacts.Notes
 {
+    /// <summary>
+    /// You can add a note to a single contact.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/createnote">Documentation</see>
+    /// </summary>
     public class CreateRequest : PayloadRequest
     {
-        public string ContactId { get; }
-        public Note Note { get; }
+        /// <summary>
+        /// The unique identifier of a given contact.
+        /// </summary>
+        public string Id { get; }
+        /// <summary>
+        /// The text of the note.
+        /// </summary>
+        public string Body { get; }
+        /// <summary>
+        /// The unique identifier of a given admin.
+        /// </summary>
+        public string AdminId { get; }
 
         public CreateRequest(Contact contact, Note note)
         {
-            ContactId = contact.Id;
-            Note = note;
+            Id = contact.Id;
+            Body = note.Body;
+            AdminId = note.Author.Id;
         }
 
-        public CreateRequest(string contactId, Note note)
+        public CreateRequest(string id, string body, string adminId = null)
         {
-            ContactId = contactId;
-            Note = note;
+            Id = id;
+            Body = body;
+            AdminId = adminId;
         }
 
         public override object Payload => new
         {
-            body = Note.Body
+            body = Body
         };
 
-        public override string Uri => $"contacts/{ContactId}/notes";
+        public override string Uri => $"contacts/{Id}/notes";
     }
 }

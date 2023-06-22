@@ -1,5 +1,6 @@
 ﻿using Intercom.Abstractions;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Intercom.Models
 {
@@ -49,5 +50,9 @@ namespace Intercom.Models
         /// </summary>
         [JsonProperty("pseudonym")]
         public string Pseudonym { get; set; }
+
+
+        [JsonProperty("custom_attributes")]
+        public Dictionary<string, object> Attributes { get; set; }
     }
 }

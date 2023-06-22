@@ -6,6 +6,8 @@ namespace Intercom.Requests.Companies
 {
     /// <summary>
     /// You can fetch a company by either passing in company_id or name as a query parameter.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/retrieveacompanybyid">Documentation</see>
     /// </summary>
     public class FindRequest : PlainRequest
     {

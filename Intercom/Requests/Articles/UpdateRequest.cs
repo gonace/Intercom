@@ -7,6 +7,8 @@ namespace Intercom.Requests.Articles
     /// <summary>
     /// You can update the details of a single article by making a PUT
     /// request to https://api.intercom.io/articles/<id>.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/updatearticle">Documentation</see>
     /// </summary>
     public class UpdateRequest : PayloadRequest
     {

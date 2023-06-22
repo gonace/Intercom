@@ -4,6 +4,8 @@ namespace Intercom.Requests.Conversations
 {
     /// <summary>
     /// You can redact a conversation part or the source message of a conversation (as seen in the source object).
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/redactconversation">Documentation</see>
     /// </summary>
     public class RedactRequest : PayloadRequest
     {

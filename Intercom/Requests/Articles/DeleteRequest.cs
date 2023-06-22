@@ -6,6 +6,8 @@ namespace Intercom.Requests.Articles
     /// <summary>
     /// You can delete a single article by making a DELETE
     /// request to https://api.intercom.io/articles/<id>.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/deletearticle">Documentation</see>
     /// </summary>
     public class DeleteRequest : PlainRequest
     {

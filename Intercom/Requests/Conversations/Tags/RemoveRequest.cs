@@ -3,23 +3,35 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Conversations.Tags
 {
+    /// <summary>
+    /// You can remove tag from a specific conversation.
+    /// This will return a tag object for the tag that was removed from the conversation.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/detachtagfromconversation">Documentation</see>
+    /// </summary>
     public class RemoveRequest : PlainRequest
     {
-        public string ConversationId { get; }
+        /// <summary>
+        /// The unique identifier for the contact which is given by Intercom.
+        /// </summary>
+        public string Id { get; }
+        /// <summary>
+        /// The unique identifier for the tag which is given by Intercom.
+        /// </summary>
         public string TagId { get; }
 
         public RemoveRequest(Conversation conversation, Tag tag)
         {
-            ConversationId = conversation.Id;
+            Id = conversation.Id;
             TagId = tag.Id;
         }
 
-        public RemoveRequest(string conversationId, string tagId)
+        public RemoveRequest(string id, string tagId)
         {
-            ConversationId = conversationId;
+            Id = id;
             TagId = tagId;
         }
 
-        public override string Uri => $"conversations/{ConversationId}/tags/{TagId}";
+        public override string Uri => $"conversations/{Id}/tags/{TagId}";
     }
 }

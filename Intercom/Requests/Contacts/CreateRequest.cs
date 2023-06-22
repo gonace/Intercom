@@ -1,11 +1,15 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Extensions;
 using Intercom.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Intercom.Requests.Contacts
 {
     /// <summary>
     /// You can create a new contact (ie. user or lead).
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/createcontact">Documentation</see>
     /// </summary>
     public class CreateRequest : PayloadRequest
     {
@@ -42,7 +46,7 @@ namespace Intercom.Requests.Contacts
         /// The time when the contact was last seen (either where
         /// the Intercom Messenger was installed or when specified manually).
         /// </summary>
-        public long? LastSeenAt { get; }
+        public long? LastSeenAt { get; protected set; }
         /// <summary>
         /// The id of an admin that has been assigned account ownership.
         /// of the contact
@@ -66,10 +70,37 @@ namespace Intercom.Requests.Contacts
             Name = contact.Name;
             Avatar = contact.Avatar.Url;
             SignedUpAt = contact.SignedUpdAt;
-            LastSeenAt = contact.LastSeenAt;
             OwnerId = contact.OwnerId;
             UnsubscribedFromEmails = contact.UnsubscribedFromEmails;
             Attributes = contact.Attributes;
+        }
+
+        public CreateRequest(string role, string externalId, string email, string phone, string name, string avatar, long? signedUpAt, int ownerId, bool? unsubscribedFromEmails, Dictionary<string, object> attributes)
+        {
+            Role = role;
+            ExternalId = externalId;
+            Email = email;
+            Phone = phone;
+            Name = name;
+            Avatar = avatar;
+            SignedUpAt = signedUpAt;
+            OwnerId = ownerId;
+            UnsubscribedFromEmails = unsubscribedFromEmails;
+            Attributes = attributes;
+        }
+
+        public CreateRequest SetLastSeenAt()
+        {
+            LastSeenAt = DateTime.Now.ToUnixTimestamp();
+
+            return this;
+        }
+
+        public CreateRequest SetLastSeenAt(long timestamp)
+        {
+            LastSeenAt = timestamp;
+
+            return this;
         }
 
         public override object Payload => new

@@ -3,23 +3,35 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Contacts.Subscriptions
 {
+    /// <summary>
+    /// You can remove a specific subscription from a contact.
+    /// This will return a subscription type model for the subscription type that was removed from the contact.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/detachsubscriptiontypetocontact">Documentation</see>
+    /// </summary>
     public class RemoveRequest : PlainRequest
     {
-        public string ContactId { get; }
+        /// <summary>
+        /// The unique identifier for the contact which is given by Intercom.
+        /// </summary>
+        public string Id { get; }
+        /// <summary>
+        /// The unique identifier for the subscription type which is given by Intercom.
+        /// </summary>
         public string SubscriptionId { get; }
 
         public RemoveRequest(Contact contact, Subscription subscription)
         {
-            ContactId = contact.Id;
+            Id = contact.Id;
             SubscriptionId = subscription.Id;
         }
 
-        public RemoveRequest(string contactId, string subscriptionId)
+        public RemoveRequest(string id, string subscriptionId)
         {
-            ContactId = contactId;
+            Id = id;
             SubscriptionId = subscriptionId;
         }
 
-        public override string Uri => $"contacts/{ContactId}/subscriptions/{SubscriptionId}";
+        public override string Uri => $"contacts/{Id}/subscriptions/{SubscriptionId}";
     }
 }

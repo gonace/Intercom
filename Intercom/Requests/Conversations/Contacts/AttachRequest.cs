@@ -3,27 +3,36 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Conversations.Contacts
 {
+    /// <summary>
+    /// You can add participants who are contacts to a conversation, on behalf of either another contact or an admin.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/attachcontacttoconversation">Documentation</see>
+    /// </summary>
     public class AttachRequest : PayloadRequest
     {
-        public string ConversationId { get; }
+        /// <summary>
+        /// The identifier for the conversation as given by Intercom.
+        /// </summary>
+        public string Id { get; }
         public string ContactId { get; }
 
         public AttachRequest(Conversation conversation, Contact contact)
         {
-            ConversationId = conversation.Id;
+            Id = conversation.Id;
             ContactId = contact.Id;
         }
 
         public AttachRequest(string conversationId, string contactId)
         {
-            ConversationId = conversationId;
+            Id = conversationId;
             ContactId = contactId;
         }
 
+        //TODO: Fix payload
         public override object Payload => new
         {
         };
 
-        public override string Uri => $"conversations/{ConversationId}/customers";
+        public override string Uri => $"conversations/{Id}/customers";
     }
 }

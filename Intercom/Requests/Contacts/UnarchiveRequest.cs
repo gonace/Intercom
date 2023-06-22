@@ -3,6 +3,11 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Contacts
 {
+    /// <summary>
+    /// You can unarchive a single contact.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/unarchivecontact">Documentation</see>
+    /// </summary>
     public class UnarchiveRequest : PlainRequest
     {
         public string Id { get; }
@@ -17,6 +22,6 @@ namespace Intercom.Requests.Contacts
             Id = id;
         }
 
-        public override string Uri => $"contacts{Id}/unarchive";
+        public override string Uri => $"contacts/{Id}/unarchive";
     }
 }

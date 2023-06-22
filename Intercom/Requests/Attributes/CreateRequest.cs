@@ -5,6 +5,8 @@ namespace Intercom.Requests.Attributes
 {
     /// <summary>
     /// You can create a data attributes for a contact or a company.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/createdataattribute">Documentation</see>
     /// </summary>
     public class CreateRequest : PayloadRequest
     {

@@ -5,6 +5,8 @@ namespace Intercom.Requests.Contacts
 {
     /// <summary>
     /// You can archive a single contact.
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/archivecontact">Documentation</see>
     /// </summary>
     public class ArchiveRequest : PlainRequest
     {

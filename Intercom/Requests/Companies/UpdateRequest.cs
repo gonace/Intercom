@@ -6,6 +6,8 @@ namespace Intercom.Requests.Companies
 {
     /// <summary>
     /// You can update a single company
+    /// <br/><br/>
+    /// <see href="https://developers.intercom.com/intercom-api-reference/reference/updatecompany">Documentation</see>
     /// </summary>
     public class UpdateRequest : PayloadRequest
     {
