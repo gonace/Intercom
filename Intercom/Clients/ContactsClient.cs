@@ -24,6 +24,7 @@ namespace Intercom.Clients
         Task<ArchiveResponse> ArchiveAsync(ArchiveRequest request);
 
         Contacts.ICompaniesClient Companies { get; }
+        Contacts.INotesClient Notes { get; }
         Contacts.ISegmentsClient Segments { get; }
         Contacts.ISubscriptionClient Subscriptions { get; }
         Contacts.ITagsClient Tags { get; }
@@ -35,6 +36,7 @@ namespace Intercom.Clients
             : base(baseUri, bearerToken, apiVersion)
         {
             Companies = new Contacts.CompaniesClient(baseUri, bearerToken, apiVersion);
+            Notes = new Contacts.NotesClient(baseUri, bearerToken, apiVersion);
             Segments = new Contacts.SegmentsClient(baseUri, bearerToken, apiVersion);
             Subscriptions = new Contacts.SubscriptionsClient(baseUri, bearerToken, apiVersion);
             Tags = new Contacts.TagsClient(baseUri, bearerToken, apiVersion);
@@ -44,6 +46,7 @@ namespace Intercom.Clients
             : base(baseUri, bearerToken, Constants.Version.Latest)
         {
             Companies = new Contacts.CompaniesClient(baseUri, bearerToken);
+            Notes = new Contacts.NotesClient(baseUri, bearerToken);
             Segments = new Contacts.SegmentsClient(baseUri, bearerToken);
             Subscriptions = new Contacts.SubscriptionsClient(baseUri, bearerToken);
             Tags = new Contacts.TagsClient(baseUri, bearerToken);
@@ -110,6 +113,7 @@ namespace Intercom.Clients
         }
 
         public Contacts.ICompaniesClient Companies { get; }
+        public Contacts.INotesClient Notes { get; }
         public Contacts.ISegmentsClient Segments { get; }
         public Contacts.ISubscriptionClient Subscriptions { get; }
         public Contacts.ITagsClient Tags { get; }
