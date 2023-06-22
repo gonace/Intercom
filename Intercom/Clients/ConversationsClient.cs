@@ -12,6 +12,8 @@ namespace Intercom.Clients
         Task<ListResponse> ListAsync(ListRequest request);
         Conversation Get(GetRequest request);
         Task<Conversation> GetAsync(GetRequest request);
+
+        Conversations.ITagsClient Tags { get; }
     }
 
     public class ConversationsClient : BaseClient<ConversationsClient>, IConversationsClient
@@ -19,11 +21,13 @@ namespace Intercom.Clients
         public ConversationsClient(string baseUri, string bearerToken, System.Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
+            Tags = new Conversations.TagsClient(baseUri, bearerToken, apiVersion);
         }
 
         public ConversationsClient(string baseUri, string bearerToken)
             : base(baseUri, bearerToken, Constants.Version.Latest)
         {
+            Tags = new Conversations.TagsClient(baseUri, bearerToken);
         }
 
         public ListResponse List(ListRequest request)
@@ -45,5 +49,7 @@ namespace Intercom.Clients
         {
             return await GetAsync<Conversation>(request);
         }
+
+        public Conversations.ITagsClient Tags { get; }
     }
 }
