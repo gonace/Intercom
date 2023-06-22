@@ -1,6 +1,6 @@
 ﻿using Intercom.Abstractions;
 
-namespace Intercom.Models.Conversations
+namespace Intercom.Models.Shared
 {
     public class Attachment : Model
     {
