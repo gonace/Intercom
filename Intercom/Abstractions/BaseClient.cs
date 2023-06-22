@@ -62,7 +62,7 @@ namespace Intercom.Abstractions
             using (var apiClient = GetBaseHttpClient())
             {
                 var request = apiClient.PostAsync(req.Uri, null);
-                await PerformRequestAsync<TReturn>(request);
+                return await PerformRequestAsync<TReturn>(request);
             }
         }
 
