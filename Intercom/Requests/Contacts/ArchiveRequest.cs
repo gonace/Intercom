@@ -3,6 +3,9 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Contacts
 {
+    /// <summary>
+    /// You can archive a single contact.
+    /// </summary>
     public class ArchiveRequest : PlainRequest
     {
         public string Id { get; }

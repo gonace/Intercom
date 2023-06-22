@@ -19,7 +19,7 @@ namespace Intercom.Tests.Clients
         {
             var request = new ListRequest
             {
-                Limit = 10,
+                PerPage = 10,
                 Page = 2
             };
 

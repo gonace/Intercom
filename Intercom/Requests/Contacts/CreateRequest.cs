@@ -3,19 +3,35 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Contacts
 {
+    /// <summary>
+    /// You can create a new contact (ie. user or lead).
+    /// </summary>
     public class CreateRequest : PayloadRequest
     {
-        public Contact Contact { get; }
+        /// <summary>
+        /// The role of the contact.
+        /// </summary>
+        public string Role { get; }
+        /// <summary>
+        /// A unique identifier for the contact which is given
+        /// to Intercom
+        /// </summary>
+        public string ExternalId { get; }
+        /// <summary>
+        /// The contacts email.
+        /// </summary>
+        public string Email { get; }
 
         public CreateRequest(Contact contact)
         {
-            Contact = contact;
+            Role = contact.Role;
+            ExternalId = contact.ExternalId;
         }
 
         public override object Payload => new
         {
-            role = Contact.Role,
-            external_id = Contact.ExternalId,
+            role = Role,
+            external_id = ExternalId,
             email = Contact.Email,
             phone = Contact.Phone,
             name = Contact.Name,
