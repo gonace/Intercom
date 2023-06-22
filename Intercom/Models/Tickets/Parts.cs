@@ -10,12 +10,12 @@ namespace Intercom.Models.Tickets
         [JsonProperty("type")]
         public string Type { get; set; }
         [JsonProperty("ticket_parts")]
-        public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<Part> Items { get; set; }
         [JsonProperty("total_count")]
         public int TotalCount { get; set; }
     }
 
-    public class Item : Model
+    public class Part : Model
     {
         [JsonProperty("part_type")]
         public string PartType { get; set; }

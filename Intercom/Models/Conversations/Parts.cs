@@ -15,12 +15,12 @@ namespace Intercom.Models.Conversations
         /// There is a limit of 500 parts.
         /// </summary>
         [JsonProperty("conversation_parts")]
-        public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<Part> Items { get; set; }
         [JsonProperty("total_count")]
         public int TotalCount { get; set; }
     }
 
-    public class Item : Model
+    public class Part : Model
     {
         [JsonProperty("external_id")]
         public bool ExternalId { get; set; }

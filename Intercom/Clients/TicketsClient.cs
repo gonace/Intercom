@@ -14,8 +14,8 @@ namespace Intercom.Clients
         Task<Ticket> CreateAsync(CreateRequest request);
         Ticket Update(UpdateRequest request);
         Task<Ticket> UpdateAsync(UpdateRequest request);
-        Item Reply(ReplyRequest request);
-        Task<Item> ReplyAsync(ReplyRequest request);
+        Part Reply(ReplyRequest request);
+        Task<Part> ReplyAsync(ReplyRequest request);
     }
 
     public class TicketsClient : BaseClient<TicketsClient>, ITicketsClient
@@ -60,14 +60,14 @@ namespace Intercom.Clients
             return await PutAsync<Ticket, UpdateRequest>(request);
         }
 
-        public Item Reply(ReplyRequest request)
+        public Part Reply(ReplyRequest request)
         {
-            return Post<Item, ReplyRequest>(request);
+            return Post<Part, ReplyRequest>(request);
         }
 
-        public async Task<Item> ReplyAsync(ReplyRequest request)
+        public async Task<Part> ReplyAsync(ReplyRequest request)
         {
-            return await PostAsync<Item, CreateRequest>(request);
+            return await PostAsync<Part, CreateRequest>(request);
         }
     }
 }
