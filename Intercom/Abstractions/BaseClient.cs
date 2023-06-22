@@ -140,6 +140,25 @@ namespace Intercom.Abstractions
             }
         }
 
+        public TReturn Delete<TReturn, TRequest>(PayloadRequest req) =>
+            Task.Run(() => DeleteAsync<TReturn, TRequest>(req)).Result;
+
+        public async Task<TReturn> DeleteAsync<TReturn, TRequest>(PayloadRequest req)
+        {
+            using (var apiClient = GetBaseHttpClient())
+            {
+
+                var message = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Delete,
+                    RequestUri = new Uri(req.Uri),
+                    Content = new StringContent(Serialize(req.Payload), Encoding.UTF8, "application/json")
+                };
+                var request = apiClient.SendAsync(message);
+                return await PerformRequestAsync<TReturn>(request);
+            }
+        }
+
 
 
         protected async Task<TReturn> PerformRequestAsync<TReturn>(Task<HttpResponseMessage> request)

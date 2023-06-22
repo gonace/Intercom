@@ -12,6 +12,8 @@ namespace Intercom.Clients
         Task<ListResponse> ListAsync(ListRequest request);
         Tag Get(GetRequest request);
         Task<Tag> GetAsync(GetRequest request);
+        void Delete(DeleteRequest request);
+        Task DeleteAsync(DeleteRequest request);
     }
 
     public class TagsClient : BaseClient<TagsClient>, ITagsClient
@@ -44,6 +46,16 @@ namespace Intercom.Clients
         public async Task<Tag> GetAsync(GetRequest request)
         {
             return await GetAsync<Tag>(request);
+        }
+
+        public void Delete(DeleteRequest request)
+        {
+            base.Delete(request);
+        }
+
+        public async Task DeleteAsync(DeleteRequest request)
+        {
+            await base.DeleteAsync(request);
         }
     }
 }
