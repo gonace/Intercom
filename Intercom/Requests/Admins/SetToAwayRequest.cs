@@ -3,21 +3,41 @@ using Intercom.Models;
 
 namespace Intercom.Requests.Admins
 {
+    /// <summary>
+    /// You can set an Admin as away for the Inbox.
+    /// </summary>
     public class SetToAwayRequest : PayloadRequest
     {
-        public Admin Admin { get; }
+        public string Id { get; }
+        /// <summary>
+        /// Set to "true" to change the status of the admin to away.
+        /// </summary>
+        public bool AwayModeEnabled { get; }
+        /// <summary>
+        /// Set to "true" to assign any new conversation replies to your default inbox.
+        /// </summary>
+        public bool AwayModeReassign { get; }
 
         public SetToAwayRequest(Admin admin)
         {
-            Admin = admin;
+            Id = admin.Id;
+            AwayModeEnabled = admin.AwayModeEnabled ?? false;
+            AwayModeReassign = admin.AwayModeReassign ?? false;
+        }
+
+        public SetToAwayRequest(string id, bool awayModeEnabled, bool awayModeReassign)
+        {
+            Id = id;
+            AwayModeEnabled = awayModeEnabled;
+            AwayModeReassign = awayModeReassign;
         }
 
         public override object Payload => new
         {
-            away_mode_enabled = Admin.AwayModeEnabled,
-            away_mode_reassign = Admin.AwayModeReassign
+            away_mode_enabled = AwayModeEnabled,
+            away_mode_reassign = AwayModeReassign
         };
 
-        public override string Uri => $"admins/{Admin.Id}/away";
+        public override string Uri => $"admins/{Id}/away";
     }
 }
