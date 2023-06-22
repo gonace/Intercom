@@ -16,6 +16,9 @@ namespace Intercom.Clients
         Task<Ticket> UpdateAsync(UpdateRequest request);
         Part Reply(ReplyRequest request);
         Task<Part> ReplyAsync(ReplyRequest request);
+
+        Tickets.IAttributesClient Attributes { get; }
+        Tickets.ITypesClient Types { get; }
     }
 
     public class TicketsClient : BaseClient<TicketsClient>, ITicketsClient
@@ -23,11 +26,15 @@ namespace Intercom.Clients
         public TicketsClient(string baseUri, string bearerToken, System.Version apiVersion)
             : base(baseUri, bearerToken, apiVersion)
         {
+            Attributes = new Tickets.AttributesClient(baseUri, bearerToken, apiVersion);
+            Types = new Tickets.TypesClient(baseUri, bearerToken, apiVersion);
         }
 
         public TicketsClient(string baseUri, string bearerToken)
             : base(baseUri, bearerToken, Constants.Version.Latest)
         {
+            Attributes = new Tickets.AttributesClient(baseUri, bearerToken);
+            Types = new Tickets.TypesClient(baseUri, bearerToken);
         }
 
         public Ticket Get(GetRequest request)
@@ -69,5 +76,8 @@ namespace Intercom.Clients
         {
             return await PostAsync<Part, CreateRequest>(request);
         }
+
+        public Tickets.IAttributesClient Attributes { get; }
+        public Tickets.ITypesClient Types { get; }
     }
 }

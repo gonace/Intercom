@@ -21,12 +21,12 @@ namespace Intercom.Requests.Articles
         /// The description of the article. For multilingual articles,
         /// this will be the description of the default language's content.
         /// </summary>
-        public string Description { get; }
+        public string Description { get; set; }
         /// <summary>
         /// The content of the article. For multilingual articles,
         /// this will be the body of the default language's content.
         /// </summary>
-        public string Body { get; }
+        public string Body { get; set; }
         /// <summary>
         /// The id of the author of the article. For multilingual articles,
         /// this will be the id of the author of the default language's content.
@@ -39,21 +39,21 @@ namespace Intercom.Requests.Articles
         /// Defaults to draft. For multilingual articles,
         /// this will be the state of the default language's content.
         /// </summary>
-        public string State { get; }
+        public string State { get; set; }
         /// <summary>
         /// The id of the article's parent collection or section.
         /// An article without this field stands alone.
         /// </summary>
-        public int ParentId { get; }
+        public int ParentId { get; set; }
         /// <summary>
         /// The type of parent, which can either be a collection or section.
         /// </summary>
-        public string ParentType { get; }
+        public string ParentType { get; set; }
         /// <summary>
         /// The Translated Content of an Article. The keys are the locale codes
         /// and the values are the translated content of the article.
         /// </summary>
-        public TranslatedContent TranslatedContent { get; }
+        public TranslatedContent TranslatedContent { get; set; }
 
         public CreateRequest(Article article)
         {
@@ -65,6 +65,12 @@ namespace Intercom.Requests.Articles
             ParentId = article.ParentId;
             ParentType = article.ParentType;
             TranslatedContent = article.TranslatedContent;
+        }
+
+        public CreateRequest(string title, int authorId)
+        {
+            Title = title;
+            AuthorId = authorId;
         }
 
         public override object Payload => new

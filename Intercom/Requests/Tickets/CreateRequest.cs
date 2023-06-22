@@ -19,7 +19,7 @@ namespace Intercom.Requests.Tickets
         /// The list of contacts (users or leads) affected by this ticket.
         /// Currently only one is allowed.
         /// </summary>
-        public IEnumerable<Contact> Contacts { get; }
+        public IEnumerable<Contact> Contacts { get; set; }
         /// <summary>
         /// The attributes set on the ticket.
         ///
@@ -30,7 +30,7 @@ namespace Intercom.Requests.Tickets
         /// For example, if the ticket type has an attribute called priority of type list, the key should be priority and the value
         /// of the attribute should be the guid of the list item (e.g. de1825a0-0164-4070-8ca6-13e22462fa7e).
         /// </summary>
-        public Dictionary<string, object> Attributes { get; }
+        public Dictionary<string, object> Attributes { get; set; }
 
         public CreateRequest(Ticket ticket)
         {
@@ -39,11 +39,9 @@ namespace Intercom.Requests.Tickets
             Attributes = ticket.Attributes;
         }
 
-        public CreateRequest(string typeId, IEnumerable<Contact> contacts, Dictionary<string, object> attributes)
+        public CreateRequest(string typeId)
         {
             TypeId = typeId;
-            Contacts = contacts;
-            Attributes = attributes;
         }
 
         public override object Payload => new

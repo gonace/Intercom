@@ -32,11 +32,9 @@ namespace Intercom.Requests.Conversations
             Attributes = conversation.Attributes;
         }
 
-        public UpdateRequest(string id, bool read, Dictionary<string, object> attributes)
+        public UpdateRequest(string id)
         {
             Id = id;
-            Read = read;
-            Attributes = attributes;
         }
 
         public override object Payload => new

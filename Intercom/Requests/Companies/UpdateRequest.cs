@@ -14,7 +14,7 @@ namespace Intercom.Requests.Companies
         /// <summary>
         /// The company id you have defined for the company.
         /// </summary>
-        public string Id { get; } = null;
+        public string Id { get; }
         /// <summary>
         /// The name of the Company.
         /// </summary>
@@ -23,31 +23,31 @@ namespace Intercom.Requests.Companies
         /// The name of the plan you have associated with
         /// the company.
         /// </summary>
-        public string Plan { get; }
+        public string Plan { get; set; }
         /// <summary>
         /// The number of employees in this company.
         /// </summary>
-        public int? Size { get; }
+        public int? Size { get; set; }
         /// <summary>
         /// The URL for this company's website.
         /// Please note that the value specified here is not validated.
         ///
         /// Accepts any string.
         /// </summary>
-        public string Website { get; }
+        public string Website { get; set; }
         /// <summary>
         /// The industry that this company operates in.
         /// </summary>
-        public string Industry { get; }
+        public string Industry { get; set; }
         /// <summary>
         /// A hash of key/value pairs containing any other data
         /// about the company you want Intercom to store.
         /// </summary>
-        public Dictionary<string, object> Attributes { get; }
+        public Dictionary<string, object> Attributes { get; set; }
         /// <summary>
         /// The time the company was created by you.
         /// </summary>
-        public long? RemoteCreatedAt { get; }
+        public long? RemoteCreatedAt { get; set; }
         /// <summary>
         /// How much revenue the company generates for your business.
         /// Note that this will truncate floats.
@@ -57,7 +57,7 @@ namespace Intercom.Requests.Companies
         ///
         /// Note that this has an upper limit of 2**31-1 or 2147483647..
         /// </summary>
-        public decimal? MonthlySpend { get; }
+        public decimal? MonthlySpend { get; set; }
 
         public UpdateRequest(Company company)
         {
@@ -70,6 +70,11 @@ namespace Intercom.Requests.Companies
             Attributes = company.Attributes;
             RemoteCreatedAt = company.RemoteCreatedAt;
             MonthlySpend = company.MonthlySpend;
+        }
+
+        public UpdateRequest(string id)
+        {
+            Id = id;
         }
 
         public override object Payload => new

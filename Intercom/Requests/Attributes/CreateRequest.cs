@@ -25,13 +25,13 @@ namespace Intercom.Requests.Attributes
         /// <summary>
         /// The readable description you see in the UI for the attribute.
         /// </summary>
-        public string Description { get; }
+        public string Description { get; set; }
         /// <summary>
         /// To create list attributes. Provide a set of hashes with value
         /// as the key of the options you want to make. data_type must
         /// be string.
         /// </summary>
-        public string[] Options { get; }
+        public string[] Options { get; set; }
 
         public CreateRequest(Attribute attribute)
         {
@@ -42,13 +42,11 @@ namespace Intercom.Requests.Attributes
             Options = attribute.Options;
         }
 
-        public CreateRequest(string name, string model, string dataType, string description, string[] options)
+        public CreateRequest(string name, string model, string dataType)
         {
             Name = name;
             Model = model;
             DataType = dataType;
-            Description = description;
-            Options = options;
         }
 
         public override object Payload => new

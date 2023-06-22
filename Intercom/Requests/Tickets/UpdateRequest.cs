@@ -18,36 +18,29 @@ namespace Intercom.Requests.Tickets
         /// <summary>
         /// The attributes set on the ticket.
         /// </summary>
-        public Dictionary<string, object> Attributes { get; }
+        public Dictionary<string, object> Attributes { get; set; }
         /// <summary>
         /// The state of the ticket.
         /// </summary>
-        public string State { get; }
+        public string State { get; set; }
         /// <summary>
         /// The ID of the admin performing the action.
         /// </summary>
-        public string AdminId { get; }
+        public string AdminId { get; set; }
         /// <summary>
         /// The ID of the admin or team to which the ticket is assigned. Set this 0 to unassign it.
         /// </summary>
-        public string AssigneeId { get; }
+        public string AssigneeId { get; set; }
 
-        public UpdateRequest(Visitor visitor, string state, string adminId, string assigneeId)
+        public UpdateRequest(Visitor visitor)
         {
             Id = visitor.Id;
             Attributes = visitor.Attributes;
-            State = State;
-            AdminId = adminId;
-            AssigneeId = assigneeId;
         }
 
-        public UpdateRequest(string id, Dictionary<string, object> attributes, string state, string adminId, string assigneeId)
+        public UpdateRequest(string id)
         {
             Id = id;
-            Attributes = attributes;
-            State = state;
-            AdminId = adminId;
-            AssigneeId = assigneeId;
         }
 
         public override object Payload => new

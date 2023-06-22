@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Models.Tickets;
 
 namespace Intercom.Requests.Tickets
 {
@@ -17,21 +18,26 @@ namespace Intercom.Requests.Tickets
         /// <summary>
         /// The message body of the note, which may contain HTML.
         /// </summary>
-        public string Body { get; }
+        public string Body { get; set; }
         /// <summary>
         /// The type of the reply. Only note is supported at the moment.
         /// </summary>
-        public string Type { get; }
+        public string Type { get; set; }
         /// <summary>
         /// The id of the admin who is making the note.
         /// </summary>
         public string AdminId { get; }
 
-        public ReplyRequest(string id, string body, string type, string adminId)
+        public ReplyRequest(Part part, string adminId)
+        {
+            Body = part.Body;
+            Type = part.PartType;
+            AdminId = adminId;
+        }
+
+        public ReplyRequest(string id, string adminId)
         {
             Id = id;
-            Body = body;
-            Type = type;
             AdminId = adminId;
         }
 

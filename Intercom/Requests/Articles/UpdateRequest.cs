@@ -20,39 +20,39 @@ namespace Intercom.Requests.Articles
         /// The title of the article.For multilingual articles, this will be
         /// the title of the default language's content.
         /// </summary>
-        public string Title { get; }
+        public string Title { get; set; }
         /// <summary>
         /// The description of the article. For multilingual articles,
         /// this will be the description of the default language's content.
         /// </summary>
-        public string Description { get; }
+        public string Description { get; set; }
         /// <summary>
         /// The content of the article. For multilingual articles,
         /// this will be the body of the default language's content.
         /// </summary>
-        public string Body { get; }
+        public string Body { get; set; }
         /// <summary>
         /// The id of the author of the article. For multilingual articles,
         /// this will be the id of the author of the default language's content.
         ///
         /// Must be a teammate on the help center's workspace.
         /// </summary>
-        public int AuthorId { get; }
+        public int AuthorId { get; set; }
         /// <summary>
         /// Whether the article will be published or will be a draft.
         /// Defaults to draft. For multilingual articles, this will be the
         /// state of the default language's content.
         /// </summary>
-        public string State { get; }
+        public string State { get; set; }
         /// <summary>
         /// The id of the article's parent collection or section.
         /// An article without this field stands alone.
         /// </summary>
-        public int ParentId { get; }
+        public int ParentId { get; set; }
         /// <summary>
         /// The type of parent, which can either be a collection or section.
         /// </summary>
-        public string ParentType { get; }
+        public string ParentType { get; set; }
         /// <summary>
         /// The Translated Content of an Article. The keys are the locale codes
         /// and the values are the translated content of the article.
@@ -72,17 +72,9 @@ namespace Intercom.Requests.Articles
             TranslatedContent = article.TranslatedContent;
         }
 
-        public UpdateRequest(string id, string title, string description, string body, int authorId, string state, int parentId, string parentType, TranslatedContent translatedContent)
+        public UpdateRequest(string id)
         {
             Id = id;
-            Title = title;
-            Description = description;
-            Body = body;
-            AuthorId = authorId;
-            State = state;
-            ParentId = parentId;
-            ParentType = parentType;
-            TranslatedContent = translatedContent;
         }
 
         public override object Payload => new

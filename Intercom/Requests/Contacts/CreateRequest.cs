@@ -29,19 +29,19 @@ namespace Intercom.Requests.Contacts
         /// <summary>
         /// The contacts phone.
         /// </summary>
-        public string Phone { get; }
+        public string Phone { get; set; }
         /// <summary>
         /// The contacts name.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
         /// <summary>
         /// An image URL containing the avatar of a contact.
         /// </summary>
-        public string Avatar { get; }
+        public string Avatar { get; set; }
         /// <summary>
         /// The time specified for when a contact signed up.
         /// </summary>
-        public long? SignedUpAt { get; }
+        public long? SignedUpAt { get; set; }
         /// <summary>
         /// The time when the contact was last seen (either where
         /// the Intercom Messenger was installed or when specified manually).
@@ -51,11 +51,11 @@ namespace Intercom.Requests.Contacts
         /// The id of an admin that has been assigned account ownership.
         /// of the contact
         /// </summary>
-        public int OwnerId { get; }
+        public int OwnerId { get; set; }
         /// <summary>
         /// Whether the contact is unsubscribed from emails.
         /// </summary>
-        public bool? UnsubscribedFromEmails { get; }
+        public bool? UnsubscribedFromEmails { get; set; }
         /// <summary>
         /// The custom attributes which are set for the contact.
         /// </summary>
@@ -75,18 +75,9 @@ namespace Intercom.Requests.Contacts
             Attributes = contact.Attributes;
         }
 
-        public CreateRequest(string role, string externalId, string email, string phone, string name, string avatar, long? signedUpAt, int ownerId, bool? unsubscribedFromEmails, Dictionary<string, object> attributes)
+        public CreateRequest(string email)
         {
-            Role = role;
-            ExternalId = externalId;
             Email = email;
-            Phone = phone;
-            Name = name;
-            Avatar = avatar;
-            SignedUpAt = signedUpAt;
-            OwnerId = ownerId;
-            UnsubscribedFromEmails = unsubscribedFromEmails;
-            Attributes = attributes;
         }
 
         public CreateRequest SetLastSeenAt()
