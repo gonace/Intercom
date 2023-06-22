@@ -22,6 +22,8 @@ namespace Intercom.Clients
 
         ArchiveResponse Archive(ArchiveRequest request);
         Task<ArchiveResponse> ArchiveAsync(ArchiveRequest request);
+        Contact Merge(MergeRequest request);
+        Task<Contact> MergeAsync(MergeRequest request);
 
         Contacts.ICompaniesClient Companies { get; }
         Contacts.INotesClient Notes { get; }
@@ -92,6 +94,16 @@ namespace Intercom.Clients
             return await PutAsync<Contact, UpdateRequest>(request);
         }
 
+        public DeleteResponse Delete(DeleteRequest request)
+        {
+            return Delete<DeleteResponse>(request);
+        }
+
+        public async Task<DeleteResponse> DeleteAsync(DeleteRequest request)
+        {
+            return await DeleteAsync<DeleteResponse>(request);
+        }
+
         public ArchiveResponse Archive(ArchiveRequest request)
         {
             return Post<ArchiveResponse>(request);
@@ -102,14 +114,14 @@ namespace Intercom.Clients
             return await PostAsync<ArchiveResponse>(request);
         }
 
-        public DeleteResponse Delete(DeleteRequest request)
+        public Contact Merge(MergeRequest request)
         {
-            return Delete<DeleteResponse>(request);
+            return Post<Contact, MergeRequest>(request);
         }
 
-        public async Task<DeleteResponse> DeleteAsync(DeleteRequest request)
+        public async Task<Contact> MergeAsync(MergeRequest request)
         {
-            return await DeleteAsync<DeleteResponse>(request);
+            return await PostAsync<Contact, MergeRequest>(request);
         }
 
         public Contacts.ICompaniesClient Companies { get; }
