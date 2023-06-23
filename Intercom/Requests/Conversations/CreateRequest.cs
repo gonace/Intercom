@@ -1,5 +1,5 @@
 ﻿using Intercom.Abstractions;
-using Intercom.Models.Shared;
+using Intercom.Requests.Conversations.Shared;
 
 namespace Intercom.Requests.Conversations
 {
@@ -13,7 +13,8 @@ namespace Intercom.Requests.Conversations
     {
         public From From { get; }
         /// <summary>
-        /// The content of the message. HTML is not supported.
+        /// The content of the message.
+        /// HTML is not supported.
         /// </summary>
         public string Body { get; }
 
@@ -27,7 +28,7 @@ namespace Intercom.Requests.Conversations
         {
             from = new
             {
-                type = From.Type,
+                type = From.Type.ToString(),
                 id = From.Id
             },
             body = Body

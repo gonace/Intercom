@@ -1,4 +1,6 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Attributes;
+using Intercom.Extensions;
 
 namespace Intercom.Requests.Attributes
 {
@@ -10,6 +12,11 @@ namespace Intercom.Requests.Attributes
     /// </summary>
     public class ListRequest : PlainRequest
     {
-        public override string Uri => "data_attributes";
+        [QueryStringProperty("model")]
+        public Constants.Attributes.Model Model { get; set; } = null;
+        [QueryStringProperty("model")]
+        public bool? IncludeArchived { get; set; } = null;
+
+        public override string Uri => $"data_attributes{this.ToQueryString()}";
     }
 }

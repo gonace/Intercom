@@ -10,6 +10,6 @@ namespace Intercom.Requests.Conversations
     /// </summary>
     public class ListRequest : PlainRequest
     {
-        public override string Uri => "conversations";
+        public override string Uri => $"conversations";
     }
 }

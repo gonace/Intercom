@@ -1,14 +1,15 @@
 ﻿using System.Globalization;
 
-namespace Intercom.Constants.Messages
+namespace Intercom.Constants.Articles
 {
-    public class From
+    public class State
     {
-        public static readonly From Admin = new From("admin");
+        public static readonly State Draft = new State("draft");
+        public static readonly State Published = new State("published");
 
         public string Name { get; set; }
 
-        public From(string name)
+        public State(string name)
         {
             Name = name;
         }

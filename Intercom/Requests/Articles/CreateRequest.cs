@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants.Articles;
 using Intercom.Models;
 using Intercom.Models.Shared;
 
@@ -39,7 +40,7 @@ namespace Intercom.Requests.Articles
         /// Defaults to draft. For multilingual articles,
         /// this will be the state of the default language's content.
         /// </summary>
-        public string State { get; set; }
+        public State State { get; set; }
         /// <summary>
         /// The id of the article's parent collection or section.
         /// An article without this field stands alone.
@@ -55,13 +56,13 @@ namespace Intercom.Requests.Articles
         /// </summary>
         public TranslatedContent TranslatedContent { get; set; }
 
-        public CreateRequest(Article article)
+        public CreateRequest(Article article, State state)
         {
             Title = article.Title;
             Description = article.Description;
             Body = article.Body;
             AuthorId = article.AuthorId;
-            State = article.State;
+            State = state;
             ParentId = article.ParentId;
             ParentType = article.ParentType;
             TranslatedContent = article.TranslatedContent;
@@ -79,7 +80,7 @@ namespace Intercom.Requests.Articles
             description = Description,
             body = Body,
             author_id = AuthorId,
-            state = State,
+            state = State.ToString(),
             parent_id = ParentId,
             parent_type = ParentType,
             translated_content = TranslatedContent

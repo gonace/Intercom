@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants.Attributes;
 using Intercom.Models;
 
 namespace Intercom.Requests.Attributes
@@ -17,11 +18,11 @@ namespace Intercom.Requests.Attributes
         /// <summary>
         /// The model that the data attribute belongs to.
         /// </summary>
-        public string Model { get; }
+        public Constants.Attributes.Model Model { get; }
         /// <summary>
         /// The type of data stored for this attribute.
         /// </summary>
-        public string DataType { get; }
+        public DataType DataType { get; }
         /// <summary>
         /// The readable description you see in the UI for the attribute.
         /// </summary>
@@ -33,16 +34,16 @@ namespace Intercom.Requests.Attributes
         /// </summary>
         public string[] Options { get; set; }
 
-        public CreateRequest(Attribute attribute)
+        public CreateRequest(Attribute attribute, Constants.Attributes.Model model, DataType dataType)
         {
             Name = attribute.Name;
-            Model = attribute.Model;
-            DataType = attribute.DataType;
+            Model = model;
+            DataType = dataType;
             Description = attribute.Description;
             Options = attribute.Options;
         }
 
-        public CreateRequest(string name, string model, string dataType)
+        public CreateRequest(string name, Constants.Attributes.Model model, DataType dataType)
         {
             Name = name;
             Model = model;
@@ -52,8 +53,8 @@ namespace Intercom.Requests.Attributes
         public override object Payload => new
         {
             name = Name,
-            model = Model,
-            data_type = DataType,
+            model = Model.ToString(),
+            data_type = DataType.ToString(),
             description = Description,
             options = Options
         };

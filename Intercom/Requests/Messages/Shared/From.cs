@@ -9,7 +9,7 @@
         /// <summary>
         /// Always admin.
         /// </summary>
-        public Constants.Messages.From Type = Constants.Messages.From.Admin;
+        public Constants.Messages.Type Type = Constants.Messages.Type.Admin;
         /// <summary>
         /// The identifier for the admin which is given by Intercom.
         /// </summary>
