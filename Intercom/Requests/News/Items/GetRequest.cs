@@ -1,6 +1,6 @@
 ﻿using Intercom.Abstractions;
 
-namespace Intercom.Requests.News
+namespace Intercom.Requests.News.Items
 {
     /// <summary>
     /// You can fetch the details of a single news item.

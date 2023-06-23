@@ -1,17 +1,17 @@
 ﻿using Intercom.Abstractions;
 using Newtonsoft.Json;
 
-namespace Intercom.Models
+namespace Intercom.Models.News
 {
     /// <summary>
-    ///The News API allows you to easily manage news items and news feeds.
+    /// The News API allows you to easily manage news items and news feeds.
     /// News are shared through news items which can be assigned to multiple news feeds.
     /// A news feed is a collection of news items, targeted to a specific audience.
     /// News feeds currently cannot be edited through the API, please refer to this article to set up your news feeds in Intercom.
-    ///
+    /// <br/><br/>
     /// <see href="https://developers.intercom.com/intercom-api-reference/reference/the-news-item-newsfeed-models">Documentation</see>
     /// </summary>
-    public class News : Model
+    public class Item : Model
     {
         /// <summary>
         /// The id of the sender of the news item. Must be a teammate on the workspace.
