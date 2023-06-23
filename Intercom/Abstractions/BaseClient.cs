@@ -53,6 +53,23 @@ namespace Intercom.Abstractions
             }
         }
 
+        public byte[] Get(StreamRequest req) =>
+            Task.Run(() => GetAsync(req)).Result;
+
+        public async Task<byte[]> GetAsync(StreamRequest req)
+        {
+            using (var apiClient = GetBaseHttpClient())
+            {
+                apiClient.DefaultRequestHeaders.Accept.Clear();
+                apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/octet-stream"));
+
+                var request = apiClient.GetAsync(req.Uri);
+                var response = await request;
+
+                return await response.Content.ReadAsByteArrayAsync();
+            }
+        }
+
 
         public TReturn Post<TReturn>(PlainRequest req) =>
             Task.Run(() => PostAsync<TReturn>(req)).Result;

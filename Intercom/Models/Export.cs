@@ -14,8 +14,8 @@ namespace Intercom.Models
         /// <summary>
         /// The identifier for your job.
         /// </summary>
-        [JsonProperty("job_identfier")]
-        public string JobIdentfier { get; set; }
+        [JsonProperty("job_identifier")]
+        public string JobIdentifier { get; set; }
         /// <summary>
         /// The current state of your job.
         /// </summary>

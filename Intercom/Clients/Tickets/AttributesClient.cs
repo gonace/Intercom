@@ -24,5 +24,25 @@ namespace Intercom.Clients.Tickets
             : base(baseUri, bearerToken, Constants.Version.Latest)
         {
         }
+
+        public Attribute Create(CreateRequest request)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<Attribute> CreateAsync(CreateRequest request)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Attribute Update(UpdateRequest request)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<Attribute> UpdateAsync(UpdateRequest request)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
