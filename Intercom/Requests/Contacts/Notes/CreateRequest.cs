@@ -39,7 +39,8 @@ namespace Intercom.Requests.Contacts.Notes
 
         public override object Payload => new
         {
-            body = Body
+            body = Body,
+            admin_id = AdminId
         };
 
         public override string Uri => $"contacts/{Id}/notes";

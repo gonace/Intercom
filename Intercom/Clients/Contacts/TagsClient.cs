@@ -11,10 +11,10 @@ namespace Intercom.Clients.Contacts
         ListResponse List(ListRequest request);
         Task<ListResponse> ListAsync(ListRequest request);
 
-        AddResponse Attach(AttachRequest request);
-        Task<AddResponse> AttachAsync(AttachRequest request);
-        RemoveResponse Detach(DetachRequest request);
-        Task<RemoveResponse> DetachAsync(DetachRequest request);
+        AttachResponse Attach(AttachRequest request);
+        Task<AttachResponse> AttachAsync(AttachRequest request);
+        DetachResponse Detach(DetachRequest request);
+        Task<DetachResponse> DetachAsync(DetachRequest request);
     }
 
     internal class TagsClient : BaseClient<TagsClient>, ITagsClient
@@ -39,24 +39,24 @@ namespace Intercom.Clients.Contacts
             return await GetAsync<ListResponse>(request);
         }
 
-        public AddResponse Attach(AttachRequest request)
+        public AttachResponse Attach(AttachRequest request)
         {
-            return Post<AddResponse, AttachRequest>(request);
+            return Post<AttachResponse, AttachRequest>(request);
         }
 
-        public async Task<AddResponse> AttachAsync(AttachRequest request)
+        public async Task<AttachResponse> AttachAsync(AttachRequest request)
         {
-            return await PostAsync<AddResponse, AttachRequest>(request);
+            return await PostAsync<AttachResponse, AttachRequest>(request);
         }
 
-        public RemoveResponse Detach(DetachRequest request)
+        public DetachResponse Detach(DetachRequest request)
         {
-            return Delete<RemoveResponse>(request);
+            return Delete<DetachResponse>(request);
         }
 
-        public async Task<RemoveResponse> DetachAsync(DetachRequest request)
+        public async Task<DetachResponse> DetachAsync(DetachRequest request)
         {
-            return await DeleteAsync<RemoveResponse>(request);
+            return await DeleteAsync<DetachResponse>(request);
         }
     }
 }

@@ -7,10 +7,10 @@ namespace Intercom.Clients.Conversations
 {
     public interface ITagsClient
     {
-        AddResponse Add(AttachRequest request);
-        Task<AddResponse> AddAsync(AttachRequest request);
-        RemoveResponse Remove(DetachRequest request);
-        Task<RemoveResponse> RemoveAsync(DetachRequest request);
+        AttachResponse Add(AttachRequest request);
+        Task<AttachResponse> AddAsync(AttachRequest request);
+        DetachResponse Remove(DetachRequest request);
+        Task<DetachResponse> RemoveAsync(DetachRequest request);
     }
 
     internal class TagsClient : BaseClient<TagsClient>, ITagsClient
@@ -25,24 +25,24 @@ namespace Intercom.Clients.Conversations
         {
         }
 
-        public AddResponse Add(AttachRequest request)
+        public AttachResponse Add(AttachRequest request)
         {
-            return Post<AddResponse, AttachRequest>(request);
+            return Post<AttachResponse, AttachRequest>(request);
         }
 
-        public async Task<AddResponse> AddAsync(AttachRequest request)
+        public async Task<AttachResponse> AddAsync(AttachRequest request)
         {
-            return await PostAsync<AddResponse, AttachRequest>(request);
+            return await PostAsync<AttachResponse, AttachRequest>(request);
         }
 
-        public RemoveResponse Remove(DetachRequest request)
+        public DetachResponse Remove(DetachRequest request)
         {
-            return Delete<RemoveResponse>(request);
+            return Delete<DetachResponse>(request);
         }
 
-        public async Task<RemoveResponse> RemoveAsync(DetachRequest request)
+        public async Task<DetachResponse> RemoveAsync(DetachRequest request)
         {
-            return await DeleteAsync<RemoveResponse>(request);
+            return await DeleteAsync<DetachResponse>(request);
         }
     }
 }
