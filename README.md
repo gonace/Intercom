@@ -90,6 +90,6 @@ Pull requests and features are happily considered! By participating in this proj
 
 Fork, then clone the repo:
 ```
-git clone git@github.com:your-username/intercom.git
+git clone git@github.com:your-username/Intercom.git
 ```
-Push to your fork and [submit a pull request](https://github.com/gonace/intercom/compare/)
+Push to your fork and [submit a pull request](https://github.com/gonace/Intercom/compare/)
