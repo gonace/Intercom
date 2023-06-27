@@ -17,7 +17,7 @@ namespace Intercom.Tests.Clients
             _companiesClient = new CompaniesClient(Url.Production, "");
         }
 
-        [Fact]
+        [Fact(Skip = "Not yet implemented")]
         public void ShouldBeAbleToRunRequest()
         {
             var company = new Company

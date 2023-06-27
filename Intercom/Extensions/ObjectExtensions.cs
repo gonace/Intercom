@@ -1,5 +1,6 @@
 ﻿using Intercom.Attributes;
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -28,7 +29,11 @@ namespace Intercom.Extensions
                     if (!queryStringBuilder.ToString().Contains("?"))
                         queryStringBuilder.Append("?");
 
-                    name = attribute?.PropertyName ?? name.ToLower();
+                    name = attribute?.PropertyName ?? name.ToLower(CultureInfo.CurrentCulture);
+                    value = attribute != null && attribute.Lower
+                        ? value.ToString()?.ToLower(CultureInfo.CurrentCulture)
+                        : value.ToString();
+
 
                     // Check's if this is the last property, if so, don't add an '&'
                     queryStringBuilder.Append(props.IndexOf(prop) != (props.Count - 1) ?

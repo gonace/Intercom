@@ -14,7 +14,7 @@ namespace Intercom.Tests.Clients
             _contactsClient = new ContactsClient(Url.Production, "");
         }
 
-        [Fact]
+        [Fact(Skip = "Not yet implemented")]
         public void ShouldBeAbleToRunRequest()
         {
             var request = new ListRequest

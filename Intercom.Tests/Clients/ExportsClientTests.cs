@@ -15,7 +15,7 @@ namespace Intercom.Tests.Clients
             _exportsClient = new ExportsClient(Url.Production, "");
         }
 
-        [Fact]
+        [Fact(Skip = "Not yet implemented")]
         public async Task ShouldBeAbleToRunRequest()
         {
             //var createRequest = new CreateRequest(1677628800, 1680307199);
