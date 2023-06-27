@@ -23,13 +23,54 @@ The `Configure()` method can be initiated in two ways,
 #### Examples
 ```c#
 using Intercom.Constants;
+using Intercom.Models;
+using Intercom.Request.Companies;
 
 Intercom.Configure(Url.Production, "bearerToken");
+
+var company = new Company
+{
+    Name = "Obscured",
+    CompanyId = "Obscured_1",
+    Plan = new Plan
+    {
+        Name = "Enterprise"
+    },
+    Size = 10,
+    Attributes = new Dictionary<string, object>
+    {
+        {"foo", "bar"},
+        {"bar", "foo"}
+    }
+};
+var request = new UpsertRequest(company);
+var response = Intercom.Companies.Upsert(request)
+
 ```
 ```c#
 using Intercom.Constants;
+using Intercom.Models;
+using Intercom.Request.Companies;
 
 Intercom.Configure(Url.Production, "bearerToken", Version.Latest)
+
+var company = new Company
+{
+    Name = "Obscured",
+    CompanyId = "Obscured_1",
+    Plan = new Plan
+    {
+        Name = "Enterprise"
+    },
+    Size = 10,
+    Attributes = new Dictionary<string, object>
+    {
+        {"foo", "bar"},
+        {"bar", "foo"}
+    }
+};
+var request = new UpsertRequest(company);
+var response = Intercom.Companies.Upsert(request)
 ```
 
 ### Advanced
@@ -38,6 +79,8 @@ If you only need access to one (or a few) clients you're able to configure each 
 #### Examples
 ```c#
 using Intercom.Constants;
+using Intercom.Models;
+using Intercom.Request.Companies;
 
 public class SomeClass
 {
@@ -47,10 +90,59 @@ public class SomeClass
     {
         _client = new CompaniesClient(Url.Production, "bearerToken")
     }
+
+    public Company Upsert()
+    {
+        var company = new Company
+        {
+            Name = "Obscured",
+            CompanyId = "Obscured_1",
+            Plan = new Plan
+            {
+                Name = "Enterprise"
+            },
+            Size = 10,
+            Attributes = new Dictionary<string, object>
+            {
+                {"foo", "bar"},
+                {"bar", "foo"}
+            }
+        };
+        var request = new UpsertRequest(company);
+        var response = Intercom.Companies.Upsert(request)
+
+        return response;
+    }
+
+    public async Task<Company> UpsertAsync()
+    {
+        var company = new Company
+        {
+            Name = "Obscured",
+            CompanyId = "Obscured_1",
+            Plan = new Plan
+            {
+                Name = "Enterprise"
+            },
+            Size = 10,
+            Attributes = new Dictionary<string, object>
+            {
+                {"foo", "bar"},
+                {"bar", "foo"}
+            }
+        };
+        var request = new UpsertRequest(company);
+        var response = await Intercom.Companies.UpsertAsync(request)
+
+        return response;
+    }
 }
 ```
 
 ```c#
+using Intercom.Constants;
+using Intercom.Models;
+using Intercom.Request.Companies;
 
 public class SomeClass
 {
@@ -59,6 +151,52 @@ public class SomeClass
     public SomeClass()
     {
         _client = new CompaniesClient(Url.Production, "bearerToken", Version.Latest)
+    }
+    
+    public Company Upsert()
+    {
+        var company = new Company
+        {
+            Name = "Obscured",
+            CompanyId = "Obscured_1",
+            Plan = new Plan
+            {
+                Name = "Enterprise"
+            },
+            Size = 10,
+            Attributes = new Dictionary<string, object>
+            {
+                {"foo", "bar"},
+                {"bar", "foo"}
+            }
+        };
+        var request = new UpsertRequest(company);
+        var response = Intercom.Companies.Upsert(request)
+
+        return response;
+    }
+
+    public async Task<Company> UpsertAsync()
+    {
+        var company = new Company
+        {
+            Name = "Obscured",
+            CompanyId = "Obscured_1",
+            Plan = new Plan
+            {
+                Name = "Enterprise"
+            },
+            Size = 10,
+            Attributes = new Dictionary<string, object>
+            {
+                {"foo", "bar"},
+                {"bar", "foo"}
+            }
+        };
+        var request = new UpsertRequest(company);
+        var response = await Intercom.Companies.UpsertAsync(request)
+
+        return response;
     }
 }
 ```
