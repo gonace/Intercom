@@ -8,7 +8,7 @@
     <owners>gonace</owners>
     <readme>README.md</readme>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description></description>
+    <description>.NET Client for Intercom!</description>
     <summary></summary>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/gonace/Intercom</projectUrl>
