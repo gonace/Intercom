@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Notes;
 using System.Threading.Tasks;
@@ -13,13 +14,13 @@ namespace Intercom.Clients
 
     public class NotesClient : BaseClient<NotesClient>, INotesClient
     {
-        public NotesClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public NotesClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public NotesClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public NotesClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

@@ -1,4 +1,5 @@
 ﻿using Intercom.Clients;
+using Intercom.Constants;
 using System;
 
 namespace Intercom.Internals
@@ -28,58 +29,58 @@ namespace Intercom.Internals
         /// <summary>
         /// Configures the instance and must be called before any other methods.
         /// </summary>
-        /// <param name="baseUri"></param>
+        /// <param name="url"></param>
         /// <param name="bearerToken"></param>
         /// <param name="version"></param>
-        public void Configure(string baseUri, string bearerToken, Version version)
+        public void Configure(Url url, string bearerToken, Constants.Version version)
         {
-            Admins = new AdminsClient(baseUri, bearerToken, version);
-            Articles = new ArticlesClient(baseUri, bearerToken, version);
-            Attributes = new AttributesClient(baseUri, bearerToken, version);
-            Companies = new CompaniesClient(baseUri, bearerToken, version);
-            Contacts = new ContactsClient(baseUri, bearerToken, version);
-            Conversations = new ConversationsClient(baseUri, bearerToken, version);
-            Events = new EventsClient(baseUri, bearerToken, version);
-            Exports = new ExportsClient(baseUri, bearerToken, version);
-            Me = new MeClient(baseUri, bearerToken, version);
-            Messages = new MessagesClient(baseUri, bearerToken, version);
-            News = new NewsClient(baseUri, bearerToken, version);
-            Notes = new NotesClient(baseUri, bearerToken, version);
-            Segments = new SegmentsClient(baseUri, bearerToken, version);
-            Subscriptions = new SubscriptionsClient(baseUri, bearerToken, version);
-            Switch = new SwitchClient(baseUri, bearerToken, version);
-            Tags = new TagsClient(baseUri, bearerToken, version);
-            Teams = new TeamsClient(baseUri, bearerToken, version);
-            Tickets = new TicketsClient(baseUri, bearerToken, version);
-            Visitors = new VisitorsClient(baseUri, bearerToken, version);
+            Admins = new AdminsClient(url, bearerToken, version);
+            Articles = new ArticlesClient(url, bearerToken, version);
+            Attributes = new AttributesClient(url, bearerToken, version);
+            Companies = new CompaniesClient(url, bearerToken, version);
+            Contacts = new ContactsClient(url, bearerToken, version);
+            Conversations = new ConversationsClient(url, bearerToken, version);
+            Events = new EventsClient(url, bearerToken, version);
+            Exports = new ExportsClient(url, bearerToken, version);
+            Me = new MeClient(url, bearerToken, version);
+            Messages = new MessagesClient(url, bearerToken, version);
+            News = new NewsClient(url, bearerToken, version);
+            Notes = new NotesClient(url, bearerToken, version);
+            Segments = new SegmentsClient(url, bearerToken, version);
+            Subscriptions = new SubscriptionsClient(url, bearerToken, version);
+            Switch = new SwitchClient(url, bearerToken, version);
+            Tags = new TagsClient(url, bearerToken, version);
+            Teams = new TeamsClient(url, bearerToken, version);
+            Tickets = new TicketsClient(url, bearerToken, version);
+            Visitors = new VisitorsClient(url, bearerToken, version);
         }
 
         /// <summary>
         /// Configures the instance and must be called before any other methods.
         /// </summary>
-        /// <param name="baseUri"></param>
+        /// <param name="url"></param>
         /// <param name="bearerToken"></param>
-        public void Configure(string baseUri, string bearerToken)
+        public void Configure(Url url, string bearerToken)
         {
-            Admins = new AdminsClient(baseUri, bearerToken);
-            Articles = new ArticlesClient(baseUri, bearerToken);
-            Attributes = new AttributesClient(baseUri, bearerToken);
-            Companies = new CompaniesClient(baseUri, bearerToken);
-            Contacts = new ContactsClient(baseUri, bearerToken);
-            Conversations = new ConversationsClient(baseUri, bearerToken);
-            Events = new EventsClient(baseUri, bearerToken);
-            Exports = new ExportsClient(baseUri, bearerToken);
-            Me = new MeClient(baseUri, bearerToken);
-            Messages = new MessagesClient(baseUri, bearerToken);
-            News = new NewsClient(baseUri, bearerToken);
-            Notes = new NotesClient(baseUri, bearerToken);
-            Segments = new SegmentsClient(baseUri, bearerToken);
-            Subscriptions = new SubscriptionsClient(baseUri, bearerToken);
-            Switch = new SwitchClient(baseUri, bearerToken);
-            Tags = new TagsClient(baseUri, bearerToken);
-            Teams = new TeamsClient(baseUri, bearerToken);
-            Tickets = new TicketsClient(baseUri, bearerToken);
-            Visitors = new VisitorsClient(baseUri, bearerToken);
+            Admins = new AdminsClient(url, bearerToken);
+            Articles = new ArticlesClient(url, bearerToken);
+            Attributes = new AttributesClient(url, bearerToken);
+            Companies = new CompaniesClient(url, bearerToken);
+            Contacts = new ContactsClient(url, bearerToken);
+            Conversations = new ConversationsClient(url, bearerToken);
+            Events = new EventsClient(url, bearerToken);
+            Exports = new ExportsClient(url, bearerToken);
+            Me = new MeClient(url, bearerToken);
+            Messages = new MessagesClient(url, bearerToken);
+            News = new NewsClient(url, bearerToken);
+            Notes = new NotesClient(url, bearerToken);
+            Segments = new SegmentsClient(url, bearerToken);
+            Subscriptions = new SubscriptionsClient(url, bearerToken);
+            Switch = new SwitchClient(url, bearerToken);
+            Tags = new TagsClient(url, bearerToken);
+            Teams = new TeamsClient(url, bearerToken);
+            Tickets = new TicketsClient(url, bearerToken);
+            Visitors = new VisitorsClient(url, bearerToken);
         }
 
         public void Dispose()

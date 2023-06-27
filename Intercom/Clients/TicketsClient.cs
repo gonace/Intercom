@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Models.Tickets;
 using Intercom.Requests.Tickets;
@@ -23,18 +24,18 @@ namespace Intercom.Clients
 
     public class TicketsClient : BaseClient<TicketsClient>, ITicketsClient
     {
-        public TicketsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public TicketsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
-            Attributes = new Tickets.AttributesClient(baseUri, bearerToken, apiVersion);
-            Types = new Tickets.TypesClient(baseUri, bearerToken, apiVersion);
+            Attributes = new Tickets.AttributesClient(url, bearerToken, version);
+            Types = new Tickets.TypesClient(url, bearerToken, version);
         }
 
-        public TicketsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public TicketsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
-            Attributes = new Tickets.AttributesClient(baseUri, bearerToken);
-            Types = new Tickets.TypesClient(baseUri, bearerToken);
+            Attributes = new Tickets.AttributesClient(url, bearerToken);
+            Types = new Tickets.TypesClient(url, bearerToken);
         }
 
         public Ticket Get(GetRequest request)

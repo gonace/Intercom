@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Admins;
 using Intercom.Responses.Admins;
@@ -18,13 +19,13 @@ namespace Intercom.Clients
 
     public class AdminsClient : BaseClient<AdminsClient>, IAdminsClient
     {
-        public AdminsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public AdminsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public AdminsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public AdminsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

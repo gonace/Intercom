@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Requests.Contacts.Tags;
 using Intercom.Responses.Contacts.Tags;
 using Intercom.Responses.Tags;
@@ -19,13 +20,13 @@ namespace Intercom.Clients.Contacts
 
     internal class TagsClient : BaseClient<TagsClient>, ITagsClient
     {
-        public TagsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public TagsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public TagsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public TagsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

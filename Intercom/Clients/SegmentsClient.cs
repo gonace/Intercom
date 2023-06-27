@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Segments;
 using Intercom.Responses.Segments;
@@ -16,13 +17,13 @@ namespace Intercom.Clients
 
     public class SegmentsClient : BaseClient<SegmentsClient>, ISegmentsClient
     {
-        public SegmentsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public SegmentsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public SegmentsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public SegmentsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

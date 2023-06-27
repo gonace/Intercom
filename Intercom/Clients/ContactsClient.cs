@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Contacts;
 using Intercom.Responses.Contacts;
@@ -34,24 +35,24 @@ namespace Intercom.Clients
 
     public class ContactsClient : BaseClient<ContactsClient>, IContactsClient
     {
-        public ContactsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public ContactsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
-            Companies = new Contacts.CompaniesClient(baseUri, bearerToken, apiVersion);
-            Notes = new Contacts.NotesClient(baseUri, bearerToken, apiVersion);
-            Segments = new Contacts.SegmentsClient(baseUri, bearerToken, apiVersion);
-            Subscriptions = new Contacts.SubscriptionsClient(baseUri, bearerToken, apiVersion);
-            Tags = new Contacts.TagsClient(baseUri, bearerToken, apiVersion);
+            Companies = new Contacts.CompaniesClient(url, bearerToken, version);
+            Notes = new Contacts.NotesClient(url, bearerToken, version);
+            Segments = new Contacts.SegmentsClient(url, bearerToken, version);
+            Subscriptions = new Contacts.SubscriptionsClient(url, bearerToken, version);
+            Tags = new Contacts.TagsClient(url, bearerToken, version);
         }
 
-        public ContactsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public ContactsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
-            Companies = new Contacts.CompaniesClient(baseUri, bearerToken);
-            Notes = new Contacts.NotesClient(baseUri, bearerToken);
-            Segments = new Contacts.SegmentsClient(baseUri, bearerToken);
-            Subscriptions = new Contacts.SubscriptionsClient(baseUri, bearerToken);
-            Tags = new Contacts.TagsClient(baseUri, bearerToken);
+            Companies = new Contacts.CompaniesClient(url, bearerToken);
+            Notes = new Contacts.NotesClient(url, bearerToken);
+            Segments = new Contacts.SegmentsClient(url, bearerToken);
+            Subscriptions = new Contacts.SubscriptionsClient(url, bearerToken);
+            Tags = new Contacts.TagsClient(url, bearerToken);
         }
 
         public ListResponse List(ListRequest request)

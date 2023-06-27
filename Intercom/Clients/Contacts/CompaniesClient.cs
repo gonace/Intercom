@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Requests.Contacts.Companies;
 using Intercom.Responses.Companies;
 using System.Threading.Tasks;
@@ -13,13 +14,13 @@ namespace Intercom.Clients.Contacts
 
     internal class CompaniesClient : BaseClient<CompaniesClient>, ICompaniesClient
     {
-        public CompaniesClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public CompaniesClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public CompaniesClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public CompaniesClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

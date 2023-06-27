@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Requests.Events;
 using Intercom.Responses.Events;
 using System.Threading.Tasks;
@@ -17,13 +18,13 @@ namespace Intercom.Clients
 
     public class EventsClient : BaseClient<EventsClient>, IEventsClient
     {
-        public EventsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public EventsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public EventsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public EventsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

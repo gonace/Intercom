@@ -1,6 +1,6 @@
 ﻿using Intercom.Clients;
+using Intercom.Constants;
 using Intercom.Internals;
-using System;
 
 namespace Intercom
 {
@@ -12,14 +12,14 @@ namespace Intercom
         /// Configures the instance.
         /// Must be called before any other methods.
         /// </summary>
-        public static void Configure(string baseUri, string bearerToken)
+        public static void Configure(Url url, string bearerToken)
         {
-            Service.Configure(baseUri, bearerToken);
+            Service.Configure(url, bearerToken);
         }
 
-        public static void Configure(string baseUri, string bearerToken, Version apiVersion)
+        public static void Configure(Url url, string bearerToken, Version version)
         {
-            Service.Configure(baseUri, bearerToken, apiVersion);
+            Service.Configure(url, bearerToken, version);
         }
 
         public static IAdminsClient Admins = Service.Admins;

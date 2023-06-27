@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models.Tickets;
 using Intercom.Requests.Tickets.Types;
 using Intercom.Responses.Tickets.Types;
@@ -20,13 +21,13 @@ namespace Intercom.Clients.Tickets
 
     internal class TypesClient : BaseClient<TypesClient>, ITypesClient
     {
-        public TypesClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public TypesClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public TypesClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public TypesClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

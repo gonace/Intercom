@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models.News;
 using Intercom.Requests.News.Items;
 using Intercom.Responses.News.Items;
@@ -16,13 +17,13 @@ namespace Intercom.Clients.News
 
     internal class ItemsClient : BaseClient<ItemsClient>, IItemsClient
     {
-        public ItemsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public ItemsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public ItemsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public ItemsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

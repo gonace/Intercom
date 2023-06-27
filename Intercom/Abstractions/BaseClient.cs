@@ -1,4 +1,5 @@
-﻿using Intercom.Exceptions;
+﻿using Intercom.Constants;
+using Intercom.Exceptions;
 using Intercom.Extensions;
 using Newtonsoft.Json;
 using System;
@@ -15,12 +16,12 @@ namespace Intercom.Abstractions
         private readonly string _bearerToken;
         private readonly string _apiVersion;
 
-        protected BaseClient(string baseUri, string bearerToken, Version apiVersion)
+        protected BaseClient(Url url, string bearerToken, Constants.Version version)
         {
-            _baseUri = new Uri(baseUri);
+            _baseUri = new Uri(url.Value);
 
             _bearerToken = bearerToken;
-            _apiVersion = apiVersion.ToString(2);
+            _apiVersion = version.Value.ToString(2);
         }
 
         public TReturn Get<TReturn>(PlainRequest req) =>

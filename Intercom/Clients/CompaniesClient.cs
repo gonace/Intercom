@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Companies;
 using Intercom.Responses.Companies;
@@ -27,18 +28,18 @@ namespace Intercom.Clients
 
     public class CompaniesClient : BaseClient<CompaniesClient>, ICompaniesClient
     {
-        public CompaniesClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public CompaniesClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
-            Contacts = new Companies.ContactsClient(baseUri, bearerToken, apiVersion);
-            Segments = new Companies.SegmentsClient(baseUri, bearerToken, apiVersion);
+            Contacts = new Companies.ContactsClient(url, bearerToken, version);
+            Segments = new Companies.SegmentsClient(url, bearerToken, version);
         }
 
-        public CompaniesClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public CompaniesClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
-            Contacts = new Companies.ContactsClient(baseUri, bearerToken);
-            Segments = new Companies.SegmentsClient(baseUri, bearerToken);
+            Contacts = new Companies.ContactsClient(url, bearerToken);
+            Segments = new Companies.SegmentsClient(url, bearerToken);
         }
 
         public Company Find(FindRequest request)

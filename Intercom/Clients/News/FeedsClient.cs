@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models.News;
 using Intercom.Requests.News.Feeds;
 using Intercom.Responses.News.Feeds;
@@ -18,16 +19,16 @@ namespace Intercom.Clients.News
 
     internal class FeedsClient : BaseClient<FeedsClient>, IFeedsClient
     {
-        public FeedsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public FeedsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
-            Items = new Feeds.ItemsClient(baseUri, bearerToken, apiVersion);
+            Items = new Feeds.ItemsClient(url, bearerToken, version);
         }
 
-        public FeedsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public FeedsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
-            Items = new Feeds.ItemsClient(baseUri, bearerToken);
+            Items = new Feeds.ItemsClient(url, bearerToken);
         }
 
         public ListResponse List(ListRequest request)

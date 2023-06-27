@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 
 namespace Intercom.Clients
 {
@@ -8,13 +9,13 @@ namespace Intercom.Clients
 
     public class SwitchClient : BaseClient<SwitchClient>, ISwitchClient
     {
-        public SwitchClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public SwitchClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public SwitchClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public SwitchClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 
 namespace Intercom.Clients
 {
@@ -10,18 +11,18 @@ namespace Intercom.Clients
 
     public class NewsClient : BaseClient<NewsClient>, INewsClient
     {
-        public NewsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public NewsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
-            Feeds = new News.FeedsClient(baseUri, bearerToken, apiVersion);
-            Items = new News.ItemsClient(baseUri, bearerToken, apiVersion);
+            Feeds = new News.FeedsClient(url, bearerToken, version);
+            Items = new News.ItemsClient(url, bearerToken, version);
         }
 
-        public NewsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public NewsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
-            Feeds = new News.FeedsClient(baseUri, bearerToken);
-            Items = new News.ItemsClient(baseUri, bearerToken);
+            Feeds = new News.FeedsClient(url, bearerToken);
+            Items = new News.ItemsClient(url, bearerToken);
         }
 
         public News.IFeedsClient Feeds { get; }

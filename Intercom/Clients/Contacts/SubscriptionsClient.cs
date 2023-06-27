@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Contacts.Subscriptions;
 using Intercom.Responses.Subscriptions;
@@ -19,13 +20,13 @@ namespace Intercom.Clients.Contacts
 
     internal class SubscriptionsClient : BaseClient<SubscriptionsClient>, ISubscriptionClient
     {
-        public SubscriptionsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public SubscriptionsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public SubscriptionsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public SubscriptionsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

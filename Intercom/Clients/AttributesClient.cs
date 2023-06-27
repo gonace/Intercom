@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Attributes;
 using Intercom.Responses.Attributes;
@@ -18,13 +19,13 @@ namespace Intercom.Clients
 
     public class AttributesClient : BaseClient<AttributesClient>, IAttributesClient
     {
-        public AttributesClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public AttributesClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public AttributesClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public AttributesClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

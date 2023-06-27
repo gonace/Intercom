@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Requests.Conversations.Tags;
 using Intercom.Responses.Conversations.Tags;
 using System.Threading.Tasks;
@@ -15,13 +16,13 @@ namespace Intercom.Clients.Conversations
 
     internal class TagsClient : BaseClient<TagsClient>, ITagsClient
     {
-        public TagsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public TagsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
         }
 
-        public TagsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public TagsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
         }
 

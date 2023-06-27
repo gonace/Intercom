@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Conversations;
 using Intercom.Responses.Conversations;
@@ -21,18 +22,18 @@ namespace Intercom.Clients
 
     public class ConversationsClient : BaseClient<ConversationsClient>, IConversationsClient
     {
-        public ConversationsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public ConversationsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
-            Contacts = new Conversations.ContactsClient(baseUri, bearerToken, apiVersion);
-            Tags = new Conversations.TagsClient(baseUri, bearerToken, apiVersion);
+            Contacts = new Conversations.ContactsClient(url, bearerToken, version);
+            Tags = new Conversations.TagsClient(url, bearerToken, version);
         }
 
-        public ConversationsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public ConversationsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
-            Contacts = new Conversations.ContactsClient(baseUri, bearerToken);
-            Tags = new Conversations.TagsClient(baseUri, bearerToken);
+            Contacts = new Conversations.ContactsClient(url, bearerToken);
+            Tags = new Conversations.TagsClient(url, bearerToken);
         }
 
         public ListResponse List(ListRequest request)

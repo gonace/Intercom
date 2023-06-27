@@ -1,4 +1,5 @@
 ﻿using Intercom.Abstractions;
+using Intercom.Constants;
 using Intercom.Models;
 using Intercom.Requests.Companies.Contacts;
 using Intercom.Responses.Contacts;
@@ -20,16 +21,16 @@ namespace Intercom.Clients.Companies
 
     internal class ContactsClient : BaseClient<ContactsClient>, IContactsClient
     {
-        public ContactsClient(string baseUri, string bearerToken, System.Version apiVersion)
-            : base(baseUri, bearerToken, apiVersion)
+        public ContactsClient(Url url, string bearerToken, Version version)
+            : base(url, bearerToken, version)
         {
-            Companies = new Contacts.CompaniesClient(baseUri, bearerToken, apiVersion);
+            Companies = new Contacts.CompaniesClient(url, bearerToken, version);
         }
 
-        public ContactsClient(string baseUri, string bearerToken)
-            : base(baseUri, bearerToken, Constants.Version.Latest)
+        public ContactsClient(Url url, string bearerToken)
+            : base(url, bearerToken, Version.Latest)
         {
-            Companies = new Contacts.CompaniesClient(baseUri, bearerToken);
+            Companies = new Contacts.CompaniesClient(url, bearerToken);
         }
 
         public ListResponse List(ListRequest request)
