@@ -12,6 +12,25 @@ You can download the intercom client nuget.
 > For the full documentation please read our [wiki](https://github.com/gonace/intercom/wiki)!
 
 ```c#
+Intercom.Configure("baseUri", "bearerToken")
+
+Intercom.Companies...
+Intercom.Me...
+```
+
+```c#
+public class SomeClass
+{
+    private readonly ICompaniesClient _client;
+
+    public SomeClass()
+    {
+        _client = new CompaniesClient("baseUri", "bearerToken")
+    }
+}
+```
+
+```c#
 ```
 
 ## Development

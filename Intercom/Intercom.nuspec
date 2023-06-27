@@ -11,17 +11,20 @@
     <description></description>
     <summary></summary>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/gonace/intercom</projectUrl>
+    <projectUrl>https://github.com/gonace/Intercom</projectUrl>
     <icon>assets\icon.png</icon>
-    <repository type="git" url="https://github.com/gonace/intercom" branch="master" />
+    <repository type="git" url="https://github.com/gonace/Intercom" branch="master" />
     <dependencies>
       <group targetFramework="netstandard2.0">
+        <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="Newtonsoft.Json" version="13.0.2" />
       </group>
       <group targetFramework="netstandard2.1">
+        <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="Newtonsoft.Json" version="13.0.2" />
       </group>
       <group targetFramework="net6.0">
+        <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="Newtonsoft.Json" version="13.0.2" />
       </group>
     </dependencies>
