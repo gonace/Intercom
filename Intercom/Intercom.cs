@@ -8,6 +8,8 @@ namespace Intercom
     {
         private static readonly IntercomService Service = new IntercomService();
 
+        public static bool IsConfigured { get; private set; }
+        
         /// <summary>
         /// Configures the instance.
         /// Must be called before any other methods.
@@ -15,11 +17,13 @@ namespace Intercom
         public static void Configure(Url url, string bearerToken)
         {
             Service.Configure(url, bearerToken);
+            IsConfigured = true;
         }
 
         public static void Configure(Url url, string bearerToken, Version version)
         {
             Service.Configure(url, bearerToken, version);
+            IsConfigured = true;
         }
 
         public static IAdminsClient Admins = Service.Admins;
