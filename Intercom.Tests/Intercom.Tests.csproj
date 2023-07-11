@@ -7,7 +7,7 @@
             - netcoreapp3.1 -> netstandard2.1
             - net6.0 -> net6.0
         -->
-    <TargetFrameworks>net48;netcoreapp3.1;net6.0</TargetFrameworks>
+    <TargetFrameworks>net48;net6.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
