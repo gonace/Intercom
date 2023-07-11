@@ -4,7 +4,7 @@ using System;
 
 namespace Intercom.Internals
 {
-    internal class IntercomService : IDisposable
+    internal class Service : IDisposable
     {
         public IAdminsClient Admins;
         public IArticlesClient Articles;
@@ -85,7 +85,25 @@ namespace Intercom.Internals
 
         public void Dispose()
         {
-            //Admins?.Dispose();
+            Admins = null;
+            Articles = null;
+            Attributes = null;
+            Companies = null;
+            Contacts = null;
+            Conversations = null;
+            Events = null;
+            Exports = null;
+            Me = null;
+            Messages = null;
+            News = null;
+            Notes = null;
+            Segments = null;
+            Subscriptions = null;
+            Switch = null;
+            Tags = null;
+            Teams = null;
+            Tickets = null;
+            Visitors = null;
         }
     }
 }

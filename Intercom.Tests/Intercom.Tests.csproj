@@ -34,4 +34,8 @@
     <ProjectReference Include="..\Intercom\Intercom.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Clients\" />
+  </ItemGroup>
+
 </Project>
