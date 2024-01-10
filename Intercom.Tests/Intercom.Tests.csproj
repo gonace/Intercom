@@ -2,7 +2,7 @@
 
   <PropertyGroup>
       <!--
-          Test all target frameworks from Cronitor/Cronitor.csproj
+          Test all target frameworks from Intercom/Intercom.csproj
             - net8.0 -> net8.0
             - net7.0 -> net7.0
             - net6.0 -> net6.0

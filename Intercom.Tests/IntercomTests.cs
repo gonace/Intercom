@@ -7,7 +7,7 @@ namespace Intercom.Tests
     public class IntercomTests
     {
         [Fact]
-        public void ShouldConfigureCronitor()
+        public void ShouldConfigureIntercom()
         {
             // Run
             Intercom.Configure(Url.Production, "");
