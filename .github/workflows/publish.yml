@@ -29,6 +29,6 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - run: dotnet restore
-    - run: dotnet build --configuration Release Intercom/Intercom.csproj
+    - run: dotnet build --configuration Release Intercom/Intercom.csproj -p:Version=${{vars.VERSION}}.${{github.run_number}}
     - run: dotnet pack --configuration Release Intercom/Intercom.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}}-alpha -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}}-alpha -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=Intercom.nuspec
     - run: dotnet nuget push Intercom/bin/Release/Intercom-NET.${{vars.VERSION}}.${{github.run_number}}-alpha.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
